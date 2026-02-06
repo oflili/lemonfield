@@ -11,6 +11,8 @@
       color: #111;
     }
     h1 { font-size: 2.5em; }
+    ul { list-style: none; padding-left: 0; }
+    li { margin: 6px 0; }
     a { color: #0066ff; text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
@@ -23,9 +25,16 @@
 <hr>
 
 <ul>
-  <li><a href="assets.html">Assets</a></li>
   <li><a href="analysis.html">Analysis</a></li>
-  <li><a href="systems.html">Systems</a></li>
+  <li>
+    <a href="assets/">Assets</a>
+    <ul>
+      <li><a href="assets/fragments.html">Fragments</a></li>
+      <li><a href="assets/segments.html">Segments</a></li>
+    </ul>
+  </li>
+  <li><a href="game.html">Game</a></li>
+  <li><a href="portfolio.html">Portfolio</a></li>
 </ul>
 
 </body>
