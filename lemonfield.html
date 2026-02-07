@@ -18,6 +18,7 @@
     h1 { font-size: 2.4em; }
     h2 { margin-top: 2em; }
     h3 { margin-top: 1.5em; }
+    
 
     a {
       color: #6B5A00;
@@ -78,6 +79,20 @@
   background: #FFEE99;
 }
 
+.dirge {
+  background: #FFF1A8; /* dirty lemon */
+  border-left: 3px solid #C9A600;
+  padding: 14px 16px;
+  margin: 12px 0 16px 0;
+
+  font-style: italic;
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: #2B2B2B;
+
+  white-space: pre-line; /* THIS is important */
+}
+    
   </style>
 </head>
 
@@ -165,8 +180,124 @@
 <p><strong>Integration:</strong><br> Wind-physics spirits tied to moral tracking and choice. Environmental decay and spirit frequency scale based on irreversible player decisions.</p>
 <p><strong>Impact:</strong><br> Lingering emotional weight. Atmosphere of regret, not punishment.</p>
 
-  
+  <div class="section">
+  <h2>4. Narrative System</h2>  
    
+<div class="block">
+<p class="meta">
+<p><strong>Function:</strong><br> Structured speech and scene styles designed to manifest tension, emotional depth, and psychological impact.</p>
+<p><strong>System Logic:</strong><br> Dialogue and cinematic beats function as catalysts for branching narrative states and permanent NPC relationship shifts.</p>
+
+<div class="example">
+<div class="example-box">
+● Monologue: “You see me as like warmth in autumn, while I watch you from all moons”; “This night breeze lull my clouds”
+</div>
+<p><strong>Implementation:</strong><br> Location-based voiceover with ambient audio layering.</p>
+<p><strong>System Response:</strong><br> Dialogue branches shift based on prior player interactions; repeatable with subtle variations per playthrough.</p>
+<p><strong>Impact:</strong><br> Intimacy meets unease. Forces players to project meaning onto ambiguous, shifting relationship dynamics.</p>
+
+<div class="example">
+<div class="example-box">
+● Confrontation Scene: “Who are you when no one's watching?”; “Your untold is louder than all silence”
+</div>
+<p><strong>Implementation:</strong><br> Scripted encounter with stripped-back UI to maximize facial performance.</p>
+<p><strong>System Response:</strong><br> NPC relationship status shifts. Future interactions are flagged for coldness, forgiveness, or avoidance.</p>
+<p><strong>Impact:</strong><br> Emotional accountability without moralizing. Players feel weight of consequences organically.</p>
+
+<div class="example">
+<div class="example-box">
+● Mocking Scene: “Fig and pomes, a filth writing you poems”; “You let a single word mold your soul”
+</div>
+<p><strong>Implementation:</strong><br> NPC taunt during gameplay or scripted encounter. Distorted audio effects, slight visual glitch.</p>
+<p><strong>System Response:</strong><br> Perception meter affected. Environmental details shift—same scene, different "truth" depending on mental state.</p>
+<p><strong>Impact:</strong><br> Linguistic disorientation. Players question reliability of narration and character motives</p>
+
+<div class="example">
+<div class="example-box">
+● NPC dialogue: “We only speak what's written in there”; “Their rage devoured all those innocent souls”
+</div>
+<p><strong>Implementation:</strong><br> Ambient NPC dialogue. Procedurally triggered based on player proximity and world state.</p>
+<p><strong>System Response:</strong><br> Eavesdropping unlocks journal entries or contextual clues. Repeated visits yield different fragments.</p>
+<p><strong>Impact:</strong><br> Keeps mystery alive. Players theorize lore without hand-holding.</p>
+
+  <div class="section">
+  <h2>5. Narrative Design and Architecture</h2>  
+   
+<div class="block">
+<p class="meta">
+<p><strong>Function:</strong><br> Multi-sensory design principles where audio, typography, and micro-animations work in concert to amplify emotional states and guide player perception without explicit direction.</p>
+<p><strong>System Logic:</strong><br> Atmospheric intensity and asset behavior scale dynamically based on player proximity to critical narrative moments. Silence deepens before revelations, typography shifts under emotional duress, animations become more restrained as tension builds.</p>
+
+<div class="example">
+<div class="example-box">
+● Silence Over Exposition 
+</div>
+<p><strong>Implementation:</strong><br> Strategic removal of ambient tracks during key text reveals.</p>
+<p><strong>Impact:</strong><br> Forces the player's focus onto the "state" of the scene; silence creates a vacuum that the player fills with their own tension.</p>
+
+<div class="example">
+<div class="example-box">
+Sparse Audio as Emotional Framing
+</div>
+<p><strong>Implementation:</strong><br> High-note piano or string motifs with "soft controls" (minimalistic layering).</p>
+<p><strong>Impact:</strong><br> Reframes the player’s internal state to match the scene’s vulnerability; creates a sense of isolation.</p>
+
+<div class="example">
+<div class="example-box">
+Typography as a Visual Mirror 
+</div>
+<p><strong>Implementation:</strong><br> Dynamic font weights. For letters, cursive becomes thicker and messier at the edges.</p>
+<p><strong>Impact:</strong><br> Visual subtext; the typography "performs" the writer's tension, suggesting they were being watched or under duress.</p>
+
+<div class="example">
+<div class="example-box">
+Micro-Behavior Over Overt Emotion 
+</div>
+<p><strong>Implementation:</strong><br> Character animations limited to eyebrow furrows, fleeting gazes, and harsh sighs.</p>
+<p><strong>Impact:</strong><br> Subtlety creates sharper atmospheric tension than overt displays; rewards players for paying close attention to character performance.</p>
+
+  <div class="section">
+  <h2>6. Sound and Verse Design</h2>  
+   
+<div class="block">
+<p class="meta">
+<p><strong>Function:</strong><br> Ambient songs, bard tales, and environmental verses that embed narrative directly into the soundscape—world-building through rhythm and repetition rather than exposition.</p>
+<p><strong>System Logic:</strong><br> Audio fragments trigger based on location, time of day, and narrative milestones, creating a persistent atmospheric layer that shifts with player progression. The same melody can comfort or unsettle depending on context.</p>
+
+<div class="example">
+<div class="example-box">
+    The Miner's Dirge — verse
+</div>
+
+<div class="dirge">
+Four walls ruined by storm  
+Rough trails is left by gnome  
+
+Small and rigid. A dream turn lucid  
+A spirit from the dirt, they dig all the filth  
+
+Sing the song of mine  
+Swing their prong in mines  
+
+Gold, silver, and rock  
+Their hope has been corrupted
+</div>
+
+<p><strong>Implementation:</strong><br> Environmental chant playing faintly as a spatialized echo or repetitive incantation.</p>
+<p><strong>System Response:</strong><br> Rhythm and volume scale with the player’s proximity to “decayed” zones or industrial ruins.</p>
+<p><strong>Impact:</strong><br> Passive storytelling that players absorb without realizing it. The world's history becomes felt rather than read, and familiar sounds take on new meaning as the narrative unfolds.</p>
+</div>  
+
+  <div class="section">
+  <h2>Tone and Contact</h2>
+<p><strong>Whatever is caged inside your head, I weave it structure and weight, giving it a place to belong.</strong></p>
+<p><strong>Contact: [lilithskade@gmail.com](mailto:lilithskade@gmail.com)</strong></p>
+
+
+
+
+    
+
 </div>
   </div>
   
