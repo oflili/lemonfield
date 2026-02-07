@@ -14,9 +14,9 @@
       margin: 1;
     }
 
-    h1 { font-size: 2.4em; }
-    h2 { margin-top: 2em; }
-    h3 { margin-top: 1.5em; }
+    h1 { font-size: 2em; }
+    h2 { margin-top: 1.5em; }
+    h3 { margin-top: 1em; }
     
 
     a {
@@ -30,15 +30,15 @@
       text-decoration: underline;
     }
 
-    hr { margin: 3em 0; }
+    hr { margin: 2em 0; }
 
     .section {
-  margin: 3em 0;
+  margin: 1em 0;
 }
 
 .container {
   max-width: 1100px;
-  padding-left: 48px;
+  padding-left: 64px;
   padding-right: 160px;
   padding-top: 32px;
   padding-bottom: 80px;
@@ -46,10 +46,10 @@
     
 .block {
   background: rgba(255,255,255,0.4);
-  padding: 5px 5px;
+  padding: 15px 15px;
   border-left: 3px solid #6B5A00;
   border-radius: 6px;
-  margin: 0em 0;
+  margin: 1em 0;
 }
 
 .block h3 {
@@ -70,8 +70,8 @@
 .example-box {
   background: #FFF3B0; /* dirty lemon */
   border-left: 3px solid #C9A400;
-  padding: 16px 18px;
-  margin: 16px 0 24px 0;
+  padding: 12px 16px;
+  margin: 10px 0 24px 0;
   font-style: italic;
   line-height: 1.6;
 }
@@ -79,7 +79,7 @@
 .example-box strong {
   font-style: normal;
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .example-box:hover {
@@ -99,7 +99,12 @@
 
   white-space: pre-line; /* THIS is important */
 }
-
+    
+.container::after {
+  content: "";
+  display: block;
+  height: 4em;
+}
   .section:last-of-type {
   margin-bottom: 80px;
   }
@@ -107,6 +112,13 @@
 .section:last-of-type .example,
 .section:last-of-type .dirge {
   border-left: none;
+}
+
+.section .block,
+.section .example,
+.section .example-box,
+.section .dirge {
+  margin-bottom: 1.2em;
 }
     
   </style>
