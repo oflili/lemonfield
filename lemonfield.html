@@ -31,6 +31,34 @@
     }
 
     hr { margin: 3em 0; }
+
+    .section {
+  margin: 3em 0;
+}
+
+.block {
+  background: rgba(255,255,255,0.4);
+  padding: 20px 24px;
+  border-left: 4px solid #6B5A00;
+  border-radius: 6px;
+  margin: 1.5em 0;
+}
+
+.block h3 {
+  margin-top: 0;
+}
+
+.meta {
+  color: #555;
+  font-size: 0.95em;
+}
+
+.example {
+  font-style: italic;
+  margin: 1em 0;
+  padding-left: 1em;
+  border-left: 2px solid #aaa;
+}
   </style>
 </head>
 
@@ -46,28 +74,40 @@ Narrative Atmospheric & System Design
 
 <hr>
 
+  <div class="section">
   <h2>1. Interface Fragments</h2>
-<p><strong>Function:</strong> Short in-game prompts that shape atmosphere through environmental hints rather than explicit instructions.</p>
-<p><strong>System Logic:</strong> Fragments dynamically trigger based on proximity, player actions, and fluctuating psychological states (sanity).</p>
+  
+<div class="block">
+<p class="meta">
+<strong>Function:</strong><br> Short in-game prompts that shape atmosphere through environmental hints rather than explicit instructions.</p>
+<p class="meta">
+<strong>System Logic:</strong><br> Fragments dynamically trigger based on proximity, player actions, and fluctuating psychological states (sanity).</p>
 
-<p>
-• “Whisper to those flowers, they will give you an answer”
-</p>
-<p><strong>Implementation:</strong> Proximity trigger. Text fades in UI corner for 3 seconds.</p>
-<p><strong>System Response:</strong> Mic input → flowers bloom → hidden path revealed.</p>
-<p><strong>Impact:</strong> Voice experimentation. World feels responsive and alive.</p>
+<div class="example">
+● “Whisper to those flowers, they will give you an answer”
+</div>
+<p><strong>Implementation:</strong><br> Proximity trigger. Text fades in UI corner for 3 seconds.</p>
+<p><strong>System Response:</strong><br> Mic input → flowers bloom → hidden path revealed.</p>
+<p><strong>Impact:</strong><br> Voice experimentation. World feels responsive and alive.</p>
 
-<p>
-• “A reflection with different eyes, don't stare too long”
-</p>
-<p><strong>Implementation:</strong> Mirror approach trigger. Whispered audio with reverb, text appears in reflection.</p>
-<p><strong>System Response:</strong> Stare 5+ seconds → reflection moves independently. Continue → sanity drop or threat spawns. </p>
-<p><strong>Impact:</strong> Tension through curiosity. Risk/reward observation gameplay.</p>
+<div class="example">
+● “A reflection with different eyes, don't stare too long”
+</div>
+<p><strong>Implementation:</strong><br> Mirror approach trigger. Whispered audio with reverb, text appears in reflection.</p>
+<p><strong>System Response:</strong><br> Stare 5+ seconds → reflection moves independently. Continue → sanity drop or threat spawns. </p>
+<p><strong>Impact:</strong><br> Tension through curiosity. Risk/reward observation gameplay.</p>
 
+  <div class="section">
   <h2>2. Symbolic Object Description</h2>
-<p><strong>Function:</strong> Objects serve as narrative vessels to convey backstory and emotional stakes without relying on cutscenes.</p>
-<p><strong>System Logic:</strong> Descriptions and physical states change based on player discovery, acting as triggers for non-linear storytelling.</p>
-
+    
+<div class="block">
+<p class="meta">
+<p><strong>Function:</strong><br> Objects serve as narrative vessels to convey backstory and emotional stakes without relying on cutscenes.</p>
+<p><strong>System Logic:</strong><br> Descriptions and physical states change based on player discovery, acting as triggers for non-linear storytelling.</p>
+ 
+</div>
+  </div>
+  
   <hr>
 
 <a href="portfolio.html">← Back to Portfolio</a>
