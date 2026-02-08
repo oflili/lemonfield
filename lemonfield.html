@@ -137,166 +137,160 @@ padding: 10px 100px 50px 100px
 <hr>
 
   <div class="section">
-  <h2>1. Interface Fragments</h2>
-  
+  <h2>1. Interface Fragments</h2>  
 <div class="block">
 <p class="meta">
-<strong>Function:</strong><br> Short in-game prompts that shape atmosphere through environmental hints rather than explicit instructions. These create curiosity-driven engagement that increases session length and encourages players to explore rather than rush.</p>
+<strong>Function:</strong> Short in-game prompts that shape atmosphere through environmental hints rather than explicit instructions. These create curiosity-driven engagement that increases session length and encourages players to explore rather than rush.</p>
 <p class="meta">
-<strong>System Logic:</strong><br> Fragments dynamically trigger based on proximity, player actions, and fluctuating psychological states (sanity).</p>
+<strong>System Logic:</strong> Fragments dynamically trigger based on proximity, player actions, and fluctuating psychological states (sanity).</p>
 
 <div class="example">
 <div class="example-box">
 ● “Whisper to those flowers, they will give you an answer”
 </div>
-<p><strong>Implementation:</strong><br> Proximity trigger. Text fades in UI corner for 3 seconds.</p>
-<p><strong>System Response:</strong><br> Mic input → flowers bloom → hidden path revealed.</p>
-<p><strong>Impact:</strong><br> Voice experimentation. World feels responsive and alive.</p>
+<p><strong>Implementation:</strong> Proximity trigger. Text fades in UI corner for 3 seconds.</p>
+<p><strong>System Response:</strong> Mic input → flowers bloom → hidden path revealed.</p>
+<p><strong>Impact:</strong> Voice experimentation. World feels responsive and alive.</p>
 
 <div class="example">
 <div class="example-box">
 ● “A reflection with different eyes, don't stare too long”
 </div>
-<p><strong>Implementation:</strong><br> Mirror approach trigger. Whispered audio with reverb, text appears in reflection.</p>
-<p><strong>System Response:</strong><br> Stare 5+ seconds → reflection moves independently. Continue → sanity drop or threat spawns. </p>
-<p><strong>Impact:</strong><br> Tension through curiosity. Risk/reward observation gameplay.</p>
-
+<p><strong>Implementation:</strong> Mirror approach trigger. Whispered audio with reverb, text appears in reflection.</p>
+<p><strong>System Response:</strong> Stare 5+ seconds → reflection moves independently. Continue → sanity drop or threat spawns. </p>
+<p><strong>Impact:</strong> Tension through curiosity. Risk/reward observation gameplay.</p>
+<br>
   
   <div class="section">
   <h2>2. Symbolic Object Description</h2>
-    
 <div class="block">
 <p class="meta">
-<p><strong>Function:</strong><br> Objects serve as narrative vessels to convey backstory and emotional stakes without relying on cutscenes. This approach deepens player attachment to characters and world while reducing production costs.</p>
-<p><strong>System Logic:</strong><br> Descriptions and physical states change based on player discovery, acting as triggers for non-linear storytelling.</p>
+<p><strong>Function:</strong> Objects serve as narrative vessels to convey backstory and emotional stakes without relying on cutscenes. This approach deepens player attachment to characters and world while reducing production costs.</p>
+<p><strong>System Logic:</strong> Descriptions and physical states change based on player discovery, acting as triggers for non-linear storytelling.</p>
 
 <div class="example">
 <div class="example-box">
 ● Rusty Necklace -> Rusted with dry blood, but the pendant surface is smooth. Maybe the symbol is more meaningful than life itself 
 </div>
-<p><strong>Implementation:</strong><br>Inventory item. Examine mode reveals rotating 3D view of the symbol.</p>
-<p><strong>System Response:</strong><br>Proximity to specific locations → memory flashback triggers. Use in dialogue → unlocks unique conversation branches.</p>
-<p><strong>Impact:</strong><br>Anchors character backstory. Emotional weight drives player investment in narrative.</p>
+<p><strong>Implementation:</strong> Inventory item. Examine mode reveals rotating 3D view of the symbol.</p>
+<p><strong>System Response:</strong> Proximity to specific locations → memory flashback triggers. Use in dialogue → unlocks unique conversation branches.</p>
+<p><strong>Impact:</strong> Anchors character backstory. Emotional weight drives player investment in narrative.</p>
 
 <div class="example">
 <div class="example-box">
 ● Half burnt letter -> A secret that bled from touch 
 </div>
-<p><strong>Implementation:</strong><br>Collectible document. Partially readable text, charred edges obscure key words.</p>
-<p><strong>System Response:</strong><br>Cross-referencing with other clues reveals hidden subplots. Specific light sources (UV) reveal obscured text.</p>
-<p><strong>Impact:</strong><br>Mystery deepens. Players fill narrative gaps, project meaning, theorize connections.</p>
-
+<p><strong>Implementation:</strong> Collectible document. Partially readable text, charred edges obscure key words.</p>
+<p><strong>System Response:</strong> Cross-referencing with other clues reveals hidden subplots. Specific light sources (UV) reveal obscured text.</p>
+<p><strong>Impact:</strong> Mystery deepens. Players fill narrative gaps, project meaning, theorize connections.</p>
+<br>
   
   <div class="section">
   <h2>3. Lore</h2>
-
 <div class="block">
 <p class="meta">
-<p><strong>Function:</strong><br> Fragments of forgotten memory that establish the thematic foundation for moral decay and cyclical fate—narrative pieces that don't explain the world, but haunt it.</p>
-<p><strong>System Logic:</strong><br> Narrative fragments that serve as the psychological blueprint for world-state shifts and player perception, subtly recontextualizing events as players uncover them.</p>
+<p><strong>Function:</strong> Fragments of forgotten memory that establish the thematic foundation for moral decay and cyclical fate—narrative pieces that don't explain the world, but haunt it.</p>
+<p><strong>System Logic:</strong> Narrative fragments that serve as the psychological blueprint for world-state shifts and player perception, subtly recontextualizing events as players uncover them.</p>
 
 <div class="example">
 <div class="example-box">
 ● “Written pages have returned to their prologue. The bitten rage starts writing its own log”
 </div>
-<p><strong>Theme:</strong><br> Cyclical fate, surveillance, and the erosion of agency.</p>
-<p><strong>Integration:</strong><br> Loop mechanics. NPC develop “ghost” memories, altering their dialogue to reflect past playthroughs. Subtle world-state shifts per cycle.</p>
-<p><strong>Impact:</strong><br> Breaks player trust. The narrative forces a confrontation between perceived control and systematic predestination.</p>
+<p><strong>Theme:</strong> Cyclical fate, surveillance, and the erosion of agency.</p>
+<p><strong>Integration:</strong> Loop mechanics. NPC develop “ghost” memories, altering their dialogue to reflect past playthroughs. Subtle world-state shifts per cycle.</p>
+<p><strong>Impact:</strong> Breaks player trust. The narrative forces a confrontation between perceived control and systematic predestination.</p>
 
 <div class="example">
 <div class="example-box">
 ● “Their sin whisper in spring, now they dancing with the wind”
 </div>
-<p><strong>Theme:</strong><br> Guilt, false redemption, and inevitable consequence.</p>
-<p><strong>Integration:</strong><br> Wind-physics spirits tied to moral tracking and choice. Environmental decay and spirit frequency scale based on irreversible player decisions.</p>
-<p><strong>Impact:</strong><br> Lingering emotional weight. Atmosphere of regret, not punishment.</p>
-
+<p><strong>Theme:</strong> Guilt, false redemption, and inevitable consequence.</p>
+<p><strong>Integration:</strong> Wind-physics spirits tied to moral tracking and choice. Environmental decay and spirit frequency scale based on irreversible player decisions.</p>
+<p><strong>Impact:</strong> Lingering emotional weight. Atmosphere of regret, not punishment.</p>
+<br>
   
   <div class="section">
   <h2>4. Narrative System</h2>  
-   
 <div class="block">
 <p class="meta">
-<p><strong>Function:</strong><br> Structured speech and scene styles designed to manifest tension, emotional depth, and psychological impact.</p>
-<p><strong>System Logic:</strong><br> Dialogue and cinematic beats function as catalysts for branching narrative states and permanent NPC relationship shifts.</p>
+<p><strong>Function:</strong> Structured speech and scene styles designed to manifest tension, emotional depth, and psychological impact.</p>
+<p><strong>System Logic:</strong> Dialogue and cinematic beats function as catalysts for branching narrative states and permanent NPC relationship shifts.</p>
 
 <div class="example">
 <div class="example-box">
 ● Monologue: “You see me as like warmth in autumn, while I watch you from all moons”; “This night breeze lull my clouds”
 </div>
-<p><strong>Implementation:</strong><br> Location-based voiceover with ambient audio layering.</p>
-<p><strong>System Response:</strong><br> Dialogue branches shift based on prior player interactions; repeatable with subtle variations per playthrough.</p>
-<p><strong>Impact:</strong><br> Intimacy meets unease. Forces players to project meaning onto ambiguous, shifting relationship dynamics.</p>
+<p><strong>Implementation:</strong> Location-based voiceover with ambient audio layering.</p>
+<p><strong>System Response:</strong> Dialogue branches shift based on prior player interactions; repeatable with subtle variations per playthrough.</p>
+<p><strong>Impact:</strong> Intimacy meets unease. Forces players to project meaning onto ambiguous, shifting relationship dynamics.</p>
 
 <div class="example">
 <div class="example-box">
 ● Confrontation Scene: “Who are you when no one's watching?”; “Your untold is louder than all silence”
 </div>
-<p><strong>Implementation:</strong><br> Scripted encounter with stripped-back UI to maximize facial performance.</p>
-<p><strong>System Response:</strong><br> NPC relationship status shifts. Future interactions are flagged for coldness, forgiveness, or avoidance.</p>
-<p><strong>Impact:</strong><br> Emotional accountability without moralizing. Players feel weight of consequences organically.</p>
+<p><strong>Implementation:</strong> Scripted encounter with stripped-back UI to maximize facial performance.</p>
+<p><strong>System Response:</strong> NPC relationship status shifts. Future interactions are flagged for coldness, forgiveness, or avoidance.</p>
+<p><strong>Impact:</strong> Emotional accountability without moralizing. Players feel weight of consequences organically.</p>
 
 <div class="example">
 <div class="example-box">
 ● Mocking Scene: “Fig and pomes, a filth writing you poems”; “You let a single word mold your soul”
 </div>
-<p><strong>Implementation:</strong><br> NPC taunt during gameplay or scripted encounter. Distorted audio effects, slight visual glitch.</p>
-<p><strong>System Response:</strong><br> Perception meter affected. Environmental details shift—same scene, different "truth" depending on mental state.</p>
-<p><strong>Impact:</strong><br> Linguistic disorientation. Players question reliability of narration and character motives</p>
+<p><strong>Implementation:</strong> NPC taunt during gameplay or scripted encounter. Distorted audio effects, slight visual glitch.</p>
+<p><strong>System Response:</strong> Perception meter affected. Environmental details shift—same scene, different "truth" depending on mental state.</p>
+<p><strong>Impact:</strong> Linguistic disorientation. Players question reliability of narration and character motives</p>
 
 <div class="example">
 <div class="example-box">
 ● NPC dialogue: “We only speak what's written in there”; “Their rage devoured all those innocent souls”
 </div>
-<p><strong>Implementation:</strong><br> Ambient NPC dialogue. Procedurally triggered based on player proximity and world state.</p>
-<p><strong>System Response:</strong><br> Eavesdropping unlocks journal entries or contextual clues. Repeated visits yield different fragments.</p>
-<p><strong>Impact:</strong><br> Keeps mystery alive. Players theorize lore without hand-holding.</p>
-
+<p><strong>Implementation:</strong> Ambient NPC dialogue. Procedurally triggered based on player proximity and world state.</p>
+<p><strong>System Response:</strong> Eavesdropping unlocks journal entries or contextual clues. Repeated visits yield different fragments.</p>
+<p><strong>Impact:</strong> Keeps mystery alive. Players theorize lore without hand-holding.</p>
+<br>
   
   <div class="section">
   <h2>5. Narrative Design and Architecture</h2>  
-   
 <div class="block">
 <p class="meta">
-<p><strong>Function:</strong><br> Multi-sensory design principles where audio, typography, and micro-animations work in concert to amplify emotional states and guide player perception without explicit direction.</p>
-<p><strong>System Logic:</strong><br> Atmospheric intensity and asset behavior scale dynamically based on player proximity to critical narrative moments. Silence deepens before revelations, typography shifts under emotional duress, animations become more restrained as tension builds.</p>
+<p><strong>Function:</strong> Multi-sensory design principles where audio, typography, and micro-animations work in concert to amplify emotional states and guide player perception without explicit direction.</p>
+<p><strong>System Logic:</strong> Atmospheric intensity and asset behavior scale dynamically based on player proximity to critical narrative moments. Silence deepens before revelations, typography shifts under emotional duress, animations become more restrained as tension builds.</p>
 
 <div class="example">
 <div class="example-box">
 ● Silence Over Exposition 
 </div>
-<p><strong>Implementation:</strong><br> Strategic removal of ambient tracks during key text reveals.</p>
-<p><strong>Impact:</strong><br> Forces the player's focus onto the "state" of the scene; silence creates a vacuum that the player fills with their own tension.</p>
+<p><strong>Implementation:</strong> Strategic removal of ambient tracks during key text reveals.</p>
+<p><strong>Impact:</strong> Forces the player's focus onto the "state" of the scene; silence creates a vacuum that the player fills with their own tension.</p>
 
 <div class="example">
 <div class="example-box">
 Sparse Audio as Emotional Framing
 </div>
-<p><strong>Implementation:</strong><br> High-note piano or string motifs with "soft controls" (minimalistic layering).</p>
-<p><strong>Impact:</strong><br> Reframes the player’s internal state to match the scene’s vulnerability; creates a sense of isolation.</p>
+<p><strong>Implementation:</strong> High-note piano or string motifs with "soft controls" (minimalistic layering).</p>
+<p><strong>Impact:</strong> Reframes the player’s internal state to match the scene’s vulnerability; creates a sense of isolation.</p>
 
 <div class="example">
 <div class="example-box">
 Typography as a Visual Mirror 
 </div>
 <p><strong>Implementation:</strong><br> Dynamic font weights. For letters, cursive becomes thicker and messier at the edges.</p>
-<p><strong>Impact:</strong><br> Visual subtext; the typography "performs" the writer's tension, suggesting they were being watched or under duress.</p>
+<p><strong>Impact:</strong> Visual subtext; the typography "performs" the writer's tension, suggesting they were being watched or under duress.</p>
 
 <div class="example">
 <div class="example-box">
 Micro-Behavior Over Overt Emotion 
 </div>
-<p><strong>Implementation:</strong><br> Character animations limited to eyebrow furrows, fleeting gazes, and harsh sighs.</p>
-<p><strong>Impact:</strong><br> Subtlety creates sharper atmospheric tension than overt displays; rewards players for paying close attention to character performance.</p>
-
+<p><strong>Implementation:</strong> Character animations limited to eyebrow furrows, fleeting gazes, and harsh sighs.</p>
+<p><strong>Impact:</strong> Subtlety creates sharper atmospheric tension than overt displays; rewards players for paying close attention to character performance.</p>
+<br>
   
   <div class="section">
   <h2>6. Sound and Verse Design</h2>  
-   
 <div class="block">
 <p class="meta">
-<p><strong>Function:</strong><br> Ambient songs, bard tales, and environmental verses that embed narrative directly into the soundscape—world-building through rhythm and repetition rather than exposition.</p>
-<p><strong>System Logic:</strong><br> Audio fragments trigger based on location, time of day, and narrative milestones, creating a persistent atmospheric layer that shifts with player progression. The same melody can comfort or unsettle depending on context.</p>
+<p><strong>Function:</strong> Ambient songs, bard tales, and environmental verses that embed narrative directly into the soundscape—world-building through rhythm and repetition rather than exposition.</p>
+<p><strong>System Logic:</strong> Audio fragments trigger based on location, time of day, and narrative milestones, creating a persistent atmospheric layer that shifts with player progression. The same melody can comfort or unsettle depending on context.</p>
 
 <div class="example">
 <div class="example-box">
@@ -317,11 +311,11 @@ Gold, silver, and rock
 Their hope has been corrupted
 </div>
 
-<p><strong>Implementation:</strong><br> Environmental chant playing faintly as a spatialized echo or repetitive incantation.</p>
-<p><strong>System Response:</strong><br> Rhythm and volume scale with the player’s proximity to “decayed” zones or industrial ruins.</p>
-<p><strong>Impact:</strong><br> Passive storytelling that players absorb without realizing it. The world's history becomes felt rather than read, and familiar sounds take on new meaning as the narrative unfolds.</p>
+<p><strong>Implementation:</strong> Environmental chant playing faintly as a spatialized echo or repetitive incantation.</p>
+<p><strong>System Response:</strong> Rhythm and volume scale with the player’s proximity to “decayed” zones or industrial ruins.</p>
+<p><strong>Impact:</strong> Passive storytelling that players absorb without realizing it. The world's history becomes felt rather than read, and familiar sounds take on new meaning as the narrative unfolds.</p>
 </div>  
-
+<br>
   
   <div class="section">
   <h2>Tone and Contact</h2>
