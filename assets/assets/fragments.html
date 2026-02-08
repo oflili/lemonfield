@@ -1,3 +1,172 @@
 <h1>Fragments</h1>
 <p>Short narrative pieces, poetic shards, emotional residue.</p>
 <a href="index.html">← Assets</a>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lemonfield — Narrative System</title>
+
+  <style>
+    body {
+      background-color: #FFF7CC;
+      color: #2B2B2B;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.5;
+      margin: 1;
+    }
+
+    h1 { font-size: 2em; }
+    h2 { margin-top: 1em; }
+    h3 { margin-top: 1em; }
+    
+
+    a {
+      color: #6B5A00;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #3A3000;
+      text-decoration: underline;
+    }
+
+    hr { margin: 0em 0; }
+
+    .section {
+  margin: 0px 0;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+padding: 10px 100px 50px 100px
+
+}
+    
+.block {
+  background: rgba(255,255,255,0.1);
+  padding: 5px;
+  border-left: 3px solid #6B5A00;
+  border-radius: 3px;
+  margin: 0;
+}
+
+.block h3 {
+  margin-top: 0em;
+}
+
+.meta {
+  color: #555;
+  font-size: 1rem;
+}
+
+.example {
+  font-style: italic;
+  margin: 0;
+  border-left: 1px solid #bbb;
+  font-size: 1rem;
+
+}
+.example-box {
+  background: #FFF3B0;
+  border-left: 2px solid #C9A400;
+  padding: 5px;
+  margin: 0em;
+  font-style: italic;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.example-box strong {
+  font-style: normal;
+  display: block;
+  margin-bottom: 1px;
+}
+
+.example-box:hover {
+  background: #FFEE99;
+}
+
+.dirge {
+  background: #FFF1A8; /* dirty lemon */
+  border-left: 2px solid #C9A600;
+  padding: 5px 5px;
+  margin:   0px 0px 0;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1;
+  color: #2B2B2B;
+  white-space: pre-line;
+}
+    
+.container::after {
+  content: "";
+  display: block;
+  height: 4em;
+}
+  .section:last-of-type {
+  margin-bottom: 60px;
+  }
+.section:last-of-type .block,
+.section:last-of-type .example,
+.section:last-of-type .dirge {
+  border-left: none;
+}
+
+.section .block,
+.section .example,
+.section .example-box,
+.section .dirge {
+  margin-bottom: 1em;
+}
+    
+  </style>
+</head>
+<body>
+
+<div class="container"> 
+  
+<a href="portfolio.html">← Back to Portfolio</a>
+
+<h1>the field of lili—th</h1>
+
+<p>Narrative Atmospheric & System Design</p>
+<p><strong>Where atmosphere breathes, silence speaks, and every choice leaves a mark.<strong/></p>
+
+<hr>
+
+  <div class="section">
+  <h2>1. Interface Fragments</h2>  
+  </div>
+<div class="block">
+<p class="meta">
+<strong>Function:</strong> Short in-game prompts that shape atmosphere through environmental hints rather than explicit instructions. These create curiosity-driven engagement that increases session length and encourages players to explore rather than rush.</p>
+<p class="meta">
+<strong>System Logic:</strong> Fragments dynamically trigger based on proximity, player actions, and fluctuating psychological states (sanity).</p>
+
+<div class="example">
+<div class="example-box">
+● “Whisper to those flowers, they will give you an answer”
+</div>
+<p><strong>Implementation:</strong> Proximity trigger. Text fades in UI corner for 3 seconds.</p>
+<p><strong>System Response:</strong> Mic input → flowers bloom → hidden path revealed.</p>
+<p><strong>Impact:</strong> Voice experimentation. World feels responsive and alive.</p>
+</div>
+  
+<div class="example">
+<div class="example-box">
+● “A reflection with different eyes, don't stare too long”
+</div>
+<p><strong>Implementation:</strong> Mirror approach trigger. Whispered audio with reverb, text appears in reflection.</p>
+<p><strong>System Response:</strong> Stare 5+ seconds → reflection moves independently. Continue → sanity drop or threat spawns. </p>
+<p><strong>Impact:</strong> Tension through curiosity. Risk/reward observation gameplay.</p>
+<br>
+</div>
+
+
+
+
+  
