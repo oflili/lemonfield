@@ -157,9 +157,9 @@ padding: 10px 100px 50px 100px
 <p><strong>Context:</strong> Developer exploring a Discord bot RP hunt system with weapon identity and monster phases.</p>
 <p><strong>Core Insight:</strong> The primary challenge isn’t feature design but session state management and concurrency.</p>
 <p><strong>Impact:</strong> Developer acknowledged backend structure considerations and integrated them into planning documentation.</p>
-<a href="#" onclick="openLightbox()">View Conversation Excerpt</a>
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img src="discord1.jpg" class="lightbox-img" onclick="event.stopPropagation();" />
+<a href="#" onclick="openLightbox('lightbox1')">View Conversation Excerpt</a>
+<div id="lightbox1" class="lightbox" onclick="closeLightbox('lightbox1')">
+    <img src="discord1.jpg" class="lightbox-img" />
 </div>
 
 
@@ -168,9 +168,9 @@ padding: 10px 100px 50px 100px
 <p><strong>Core Insight:</strong> Structural correctness does not guarantee experiential differentiation. Branches may route differently while maintaining identical emotional weight and perceived stakes.</p>
 <p><strong>Intervention:</strong> Redirected evaluation from mechanical flow validation toward emotional trajectory divergence and branch “weight” assessment.</p>
 <p><strong>Impact:</strong> Developer adopted a stress-testing lens focused on experiential distinction rather than structural completeness.</p>  
-<a href="#" onclick="openLightbox()">View Conversation Excerpt</a>
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img src="discord2.jpg" class="lightbox-img" onclick="event.stopPropagation();" />
+<a href="#" onclick="openLightbox('lightbox2')">View Conversation Excerpt</a>
+<div id="lightbox2" class="lightbox" onclick="closeLightbox('lightbox2')">
+    <img src="discord2.jpg" class="lightbox-img" />
 </div>
 
 
@@ -184,12 +184,12 @@ padding: 10px 100px 50px 100px
 <a href="index.html">← Home</a>
 
 <script>
-function openLightbox() {
-  document.getElementById("lightbox").style.display = "flex";
+function openLightbox(id) {
+    document.getElementById(id).style.display = "flex";
 }
 
-function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
+function closeLightbox(id) {
+    document.getElementById(id).style.display = "none";
 }
 </script>
 
