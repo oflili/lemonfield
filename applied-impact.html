@@ -9,31 +9,20 @@
       background-color: #FFF7CC;
       color: #2B2B2B;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 18px;
-      line-height: 1.7;
-      padding: 24px;
-    }
-
-    p {
-      font-size: 1.05em;
-      margin-bottom: 1em;
-    }
-
-    a {
-      color: #6B5A00;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #3A3000;
-      text-decoration: underline;
+      font-size: 17px;
+      line-height: 1.5;
+      margin: 1;
     }
 
     h1 { font-size: 2em; }
     h2 { margin-top: 1em; }
     h3 { margin-top: 1em; }
     
+
+    a {
+      color: #6B5A00;
+      font-weight: 600;
+      text-decoration: none;
     }
 
     a:hover {
@@ -70,31 +59,93 @@ padding: 10px 100px 50px 100px
   color: #555;
   font-size: 1rem;
 }
+
+.example {
+  font-style: italic;
+  margin: 0;
+  border-left: 1px solid #bbb;
+  font-size: 1rem;
+
+}
+.example-box {
+  background: #FFF3B0;
+  border-left: 2px solid #C9A400;
+  padding: 5px;
+  margin: 0em;
+  font-style: italic;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.example-box strong {
+  font-style: normal;
+  display: block;
+  margin-bottom: 1px;
+}
+
+.example-box:hover {
+  background: #FFEE99;
+}
+
+.dirge {
+  background: #FFF1A8; /* dirty lemon */
+  border-left: 2px solid #C9A600;
+  padding: 5px 5px;
+  margin:   0px 0px 0;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1;
+  color: #2B2B2B;
+  white-space: pre-line;
+}
     
 .container::after {
   content: "";
   display: block;
   height: 4em;
 }
-
-.section:last-of-type .block
- {
+  .section:last-of-type {
+  margin-bottom: 60px;
+  }
+.section:last-of-type .block,
+.section:last-of-type .example,
+.section:last-of-type .dirge {
   border-left: none;
 }
 
-.section .block
-  {
+.section .block,
+.section .example,
+.section .example-box,
+.section .dirge {
   margin-bottom: 1em;
 }
-    .block h2,
-.block h3,
-.block p,
-.block ul {
-  margin-top: 0.8em;
-  margin-bottom: 0.8em;
-}
+    
   </style>
 </head>
+<body>
+
+<div class="container"> 
+  
+<a href="portfolio.html">← Back to Portfolio</a>
+
+<h1>Applied Impact</h1>
+
+
+<hr>
+
+  <div class="section">
+  <h3>Discord-Hosted Hunt System — Structural Consultation</h3>
+  </div>
+<p><strong>Context:</strong> Developer exploring a Discord bot RP hunt system with weapon identity and monster phases.</p>
+<p><strong>Core Insight:</strong> The primary challenge isn’t feature design but session state management and concurrency.</p>
+<p><strong>Impact:</strong> Developer acknowledged backend structure considerations and integrated them into planning documentation.</p>
+<p>[View Conversation Excerpt]</p>
+
+
+
+
 
 
   
+</div>
+</body>
