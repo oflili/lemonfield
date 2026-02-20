@@ -155,20 +155,30 @@ X for segmented work (replies): <a href="https://x.com/oflili_" target="_blank">
  <hr>
 
   <h3>[Direct Contact]</h3>
-  
+
+
+
   <p><strong>
   <a href="mailto:lilithskade@://gmail.com: [Project Name]&body=Name/Contact:%0D%0AProject: [ ] Game | [ ] Interactive Media%0D%0A%0D%0AContext/Question:%0D%0A%0D%0ADuration: [ ] Short Term | [ ] Long Term" 
    style="text-decoration: underline; font-weight: bold;">
    → Initiate Strategic Inquiry</a>
     </strong></p>
 
+
+<a href="mailto:lilithskade@://gmail.com: New Project Fragment&body=Name/Contact:%0D%0AProject: [ ] Game | [ ] Interactive Media%0D%0A%0D%0AContext/Question:%0D%0A%0D%0ADuration: [ ] Short Term | [ ] Long Term">
+   Send Inquiry
+→ Initiate Strategic Inquiry</a>
+
+
+
+  
     
   <p><strong>Contact Form</strong></p>
 <section id="contact-form" style="max-width: 500px; font-family: serif; line-height: 1.6;">
     <form action="mailto:lilithskade@gmail.com" method="GET" enctype="text/plain">
         
         <input type="hidden" name="subject" value="Inquiry: New Project Fragment">
-
+    
         <div style="margin-bottom: 15px;">
             <label>Name / Brand:</label><br>
             <input type="text" name="body" required style="width: 100%; border: none; border-bottom: 1px solid #000; background: transparent; outline: none;">
@@ -193,9 +203,6 @@ X for segmented work (replies): <a href="https://x.com/oflili_" target="_blank">
   Dispatch Inquiry
 </button>
 
-        <button type="submit" style="background: #000; color: #fff; border: none; padding: 10px 20px; cursor: pointer; font-family: inherit;">
-            Dispatch Inquiry
-        </button>
     </form>
 </section>
 
@@ -206,17 +213,14 @@ X for segmented work (replies): <a href="https://x.com/oflili_" target="_blank">
 
 <script>
 function sendAtmosphericInquiry() {
-  // 1. Grab the values from your form fields
-  const name = document.getElementById('name-input').value; // Ensure your name field has id="name-input"
-  const inquiry = document.getElementById('inquiry-textarea').value; // Ensure your textarea has id="inquiry-textarea"
+  const name = document.getElementById('name-input').value; 
+  const inquiry = document.getElementById('inquiry-textarea').value; 
 
-  // 2. THE VALIDATION CHECK (The "Required" Alert)
   if (!name.trim() || !inquiry.trim()) {
     alert("Inquiry Incomplete: Please provide a Name/Brand and your Core Inquiry before dispatching.");
-    return; // This stops the code from opening the email
+    return; 
   }
 
-  // 3. Logic to see which boxes are checked
   let projectScope = "";
   if(document.getElementById('game-check').checked) projectScope += "[X] Game ";
   if(document.getElementById('interactive-check').checked) projectScope += "[X] Interactive Media";
@@ -225,7 +229,6 @@ function sendAtmosphericInquiry() {
   if(document.getElementById('surgical-check').checked) engagementType += "[X] Surgical (Short) ";
   if(document.getElementById('structural-check').checked) engagementType += "[X] Structural (Long)";
 
-  // 4. Construct the mailto link with the user's data
   const mailtoURL = `mailto:lilithskade@://gmail.com Inquiry: ${encodeURIComponent(name)}` +
     `&body=Name/Brand: ${encodeURIComponent(name)}%0D%0A` +
     `Project Scope: ${projectScope || "[None Selected]"}%0D%0A` +
