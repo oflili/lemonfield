@@ -119,6 +119,22 @@ padding: 10px 100px 50px 100px
 .section .dirge {
   margin-bottom: 1em;
 }
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lightbox-img {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 6px;
+}
     
   </style>
 </head>
@@ -141,15 +157,35 @@ padding: 10px 100px 50px 100px
 <p><strong>Context:</strong> Developer exploring a Discord bot RP hunt system with weapon identity and monster phases.</p>
 <p><strong>Core Insight:</strong> The primary challenge isn’t feature design but session state management and concurrency.</p>
 <p><strong>Impact:</strong> Developer acknowledged backend structure considerations and integrated them into planning documentation.</p>
-<p>[View Conversation Excerpt]</p>
+<a href="#" onclick="openLightbox()">View Conversation Excerpt</a>
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img src="discord1.jpg" class="lightbox-img" onclick="event.stopPropagation();" />
+</div>
 
+
+
+
+
+
+  
 
 
 </div>
 
   <hr>
-<a href="index.html">← Home</a>
-</body>
-</html>
 
   
+<a href="index.html">← Home</a>
+
+<script>
+function openLightbox() {
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+</body>
+</html>
