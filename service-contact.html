@@ -170,7 +170,7 @@ X for segmented work (replies): <a href="https://x.com/oflili_" target="_blank">
       
         <div style="margin-bottom: 15px;">
             <label>Name / Brand:</label><br>
-            <input type="text" name="body" required style="width: 100%; border: none; border-bottom: 1px solid #000; background: transparent; outline: none;">
+            <input type="text" id="name input" required style="width: 100%; border: none; border-bottom: 1px solid #000; background: transparent; outline: none;">
         </div>
 
         <div style="margin-bottom: 15px;">
@@ -187,11 +187,9 @@ X for segmented work (replies): <a href="https://x.com/oflili_" target="_blank">
 
         <div style="margin-bottom: 20px;">
             <label>The Core Inquiry (Context/Question):</label><br>
-            <textarea name="body" rows="4" required style="width: 100%; border: 1px solid #000; background: transparent; outline: none; padding: 5px;"></textarea>
+            <textarea id="inquiry textarea" rows="4" required style="width: 100%; border: 1px solid #000; background: transparent; outline: none; padding: 5px;"></textarea>
         </div>
-<input type="text" id="name-input" required>
-<textarea id="inquiry-textarea" required></textarea>
-        <button type="submit" style="background: #000; color: #fff; border: none; padding: 10px 20px; cursor: pointer; font-family: inherit;">
+      <button type="submit" style="background: #000; color: #fff; border: none; padding: 10px 20px; cursor: pointer; font-family: inherit;">
             Dispatch Inquiry
         </button>
     </form>
@@ -220,7 +218,13 @@ function sendAtmosphericInquiry() {
   if(document.getElementById('surgical-check').checked) engagementType += "[X] Surgical (Short) ";
   if(document.getElementById('structural-check').checked) engagementType += "[X] Structural (Long)";
 
-  const mailtoURL = `mailto:lilithskade@://gmail.com Inquiry: ${encodeURIComponent(name)}` +
+<input type="checkbox" id="game-check"> Game
+<input type="checkbox" id="interactive-check"> Interactive Media
+
+<input type="checkbox" id="surgical-check"> Surgical (Short)
+<input type="checkbox" id="structural-check"> Structural (Long)
+  
+  const mailtoURL = `mailto:lilithskade@gmail.com?subject=Inquiry: ${encodeURIComponent(name)}` +
     `&body=Name/Brand: ${encodeURIComponent(name)}%0D%0A` +
     `Project Scope: ${projectScope || "[None Selected]"}%0D%0A` +
     `Engagement Type: ${engagementType || "[None Selected]"}%0D%0A%0D%0A` +
