@@ -3,26 +3,22 @@
 <head>
   <meta charset="utf-8">
   <title>Analysis</title>
-
-  <style>
-    body {
+<style>
+  
+  body {
       background-color: #FFF7CC;
       color: #2B2B2B;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 18px;
-      line-height: 1.7;
+      font-size: 17px;
+      line-height: 1.5;
+      margin: 1.5;
       padding: 24px;
     }
 
-    h1 {
-      font-size: 2.2em;
-      margin-bottom: 0.3em;
-    }
-
-    p {
-      font-size: 1.05em;
-      margin-bottom: 1em;
-    }
+    h1 { font-size: 2em; }
+    h2 { margin-top: 1em; }
+    h3 { margin-top: 1em; }
+    
 
     a {
       color: #6B5A00;
@@ -34,13 +30,8 @@
       color: #3A3000;
       text-decoration: underline;
     }
-h1 { font-size: 2em; }
-    h2 { margin-top: 1em; }
-    h3 { margin-top: 1em; }
-    
-    }
 
-hr { margin: 0em 0; }
+    hr { margin: 0em 0; }
 
     .section {
   margin: 0px 0;
@@ -69,32 +60,78 @@ padding: 10px 100px 50px 100px
   color: #555;
   font-size: 1rem;
 }
+
+.example {
+  font-style: italic;
+  margin: 0;
+  border-left: 1px solid #bbb;
+  font-size: 1rem;
+
+}
+.example-box {
+  background: #FFF3B0;
+  border-left: 2px solid #C9A400;
+  padding: 5px;
+  margin: 0em;
+  font-style: italic;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.example-box strong {
+  font-style: normal;
+  display: block;
+  margin-bottom: 1px;
+}
+
+.example-box:hover {
+  background: #FFEE99;
+}
+
+.dirge {
+  background: #FFF1A8; /* dirty lemon */
+  border-left: 2px solid #C9A600;
+  padding: 5px 5px;
+  margin:   0px 0px 0;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1;
+  color: #2B2B2B;
+  white-space: pre-line;
+}
     
 .container::after {
   content: "";
   display: block;
   height: 4em;
 }
-
-.section:last-of-type .block
- {
+  .section:last-of-type {
+  margin-bottom: 60px;
+  }
+.section:last-of-type .block,
+.section:last-of-type .example,
+.section:last-of-type .dirge {
   border-left: none;
 }
 
-.section .block
-  {
+.section .block,
+.section .example,
+.section .example-box,
+.section .dirge {
   margin-bottom: 1em;
-}
-    .block h2,
-.block h3,
-.block p,
-.block ul {
-  margin-top: 0.8em;
-  margin-bottom: 0.8em;
 }
     
   </style>
 </head>
+
+
+<div class="container">
+<h2>1. Voice Integrity & Engagement Drift in Ongoing Narrative Systems</h2>
+<hr>
+<div class="block">
+<p class="meta">
+<p class="meta">
+    
 
 <body>
 <a href="portfolio.html">← Back to Portfolio</a>
@@ -105,7 +142,7 @@ padding: 10px 100px 50px 100px
   <hr>
   <br>
 
-
+<div class="container">
 <div class="section">
   <h2>Character psychology through audio: A narrative design study</h2>
   <br>
@@ -114,7 +151,12 @@ padding: 10px 100px 50px 100px
 <li>Methodology: Deconstructing character BGM to identify the underlying emotional architecture and articulating how these auditory systems serve narrative goals.</li>
 </ul>
 
+ <div class="block">
+<p class="meta">
+<p class="meta"> 
 <h3>1. Caleb — Decay through time</h3>
+</p>
+ </div>
 <ul>
 <li>Audio Signature: Layered high and low scale tuning with spatial resonance.</li>
 <li>Surface Presentation: Calm, composed, visually striking.</li>
@@ -131,7 +173,12 @@ experiences simultaneous beauty and decay, creating psychological tension that
 drives player curiosity.</strong></p>
 <p><strong>Impact: The player is driven by a psychological "need to know," fueling long-term engagement and investment.</strong></p>
 
+   <div class="block">
+<p class="meta">
+<p class="meta">
 <h3>2. Zayne — Agony underneath composure</h3>
+</p>
+   </div>
 <ul>
 <li>Audio Signature: High scale dominance with low scale undercurrent; dramatic crescendos and false endings.</li>
 <li>Surface Presentation: Quiet, composed, and controlled.</li>
@@ -170,7 +217,9 @@ The most successful characters are not those with the most elaborate backstories
 
 The most engaging characters aren’t those with the most elaborate backstories, they’re those whose audio design communicates contradiction, vulnerability, and psychological depth directly to the player’s emotional system. This foundation design works by making players care deeply about
 characters through psychological authenticity, not exposition.</p>
-<hr>
+</div>
+</div>
+  <hr>
 <br>
 
 <a href="index.html">← Home</a>
