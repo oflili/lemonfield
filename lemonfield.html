@@ -18,7 +18,26 @@
     h2 { margin-top: 1em; }
     h3 { margin-top: 1em; }
     
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  opacity: 0.08;
+}
 
+.secret {
+  transition: filter 0.3s ease;
+}
+
+.secret:hover {
+  filter: blur(1px);
+}
+    
     a {
       color: #6B5A00;
       font-weight: 600;
@@ -144,6 +163,7 @@ padding: 10px 100px 50px 100px
 <strong>Function:</strong> Short in-game prompts that shape atmosphere through environmental hints rather than explicit instructions. These create curiosity-driven engagement that increases session length and encourages players to explore rather than rush.</p>
 <p class="meta">
 <strong>System Logic:</strong> Fragments dynamically trigger based on proximity, player actions, and fluctuating psychological states (sanity).</p>
+
 
 <div class="example">
 <div class="example-box">
