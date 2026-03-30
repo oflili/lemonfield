@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lemonfield — Narrative & Atmospheric Design</title>
-  <meta name="description" content="I'm less interested in adding features, and more interested in why they don't belong. Narrative architecture, psychological systems, experiential design." />
+  <title>Lemonfield — Narrative System Design & Atmospheric Architecture</title>
+  <meta name="description" content="Most games give rewards. I design gaps." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
-
   <style>
     :root {
       --bg:        #f2ead6;
@@ -38,20 +37,44 @@
       font-size: 1.05rem;
       line-height: 1.7;
       overflow-x: hidden;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.022'/%3E%3C/svg%3E");
+      cursor: none;
     }
 
     a { color: inherit; text-decoration: none; }
     .wrap { max-width: 840px; margin: 0 auto; padding: 0 1.75rem; }
 
-    /* ── Botanical corners ── */
-    .bot { position: fixed; pointer-events: none; z-index: 0; opacity: 0.11; }
-    .bot-tr { top: 0; right: 0; }
-    .bot-bl { bottom: 0; left: 0; transform: scale(-1); }
+    #lemon-bg {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 0;
+    }
 
-    /* ════════════════════════════════
+    /* ── Pixie dust canvas ── */
+    #dust-canvas {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9997;
+    }
+
+    /* ── Cursor trail canvas ── */
+    #trail-canvas {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9996;
+    }
+
+    /* ── Custom lemon cursor ── */
+    #cursor {
+      position: fixed; pointer-events: none; z-index: 9999;
+      width: 44px; height: 28px;
+      transform: translate(-50%, -50%);
+      transition: transform 0.06s ease, opacity 0.2s;
+      opacity: 0;
+    }
+    #cursor.visible { opacity: 1; }
+    #cursor.pressing { transform: translate(-50%, -50%) scale(0.78); }
+    #cursor.on-link { transform: translate(-50%, -50%) scale(1.18); }
+
+    /* ════════════════════════════
        HEADER
-    ════════════════════════════════ */
+    ════════════════════════════ */
     header {
       text-align: center;
       padding: 2.8rem 0 1.6rem;
@@ -62,88 +85,61 @@
       font-family: var(--fell); font-style: italic;
       font-size: clamp(2.5rem, 7vw, 3.7rem);
       color: var(--gold); line-height: 1; display: block;
-      transition: opacity 0.2s;
     }
-    .logo:hover { opacity: 0.8; }
     .sub {
       font-size: 0.7rem; font-weight: 300;
       letter-spacing: 0.24em; text-transform: uppercase;
       color: var(--ink-4); margin-top: 0.55rem;
     }
 
-    /* ════════════════════════════════
+    /* ════════════════════════════
        HERO
-       — opens with your own words,
-         not a job title
-    ════════════════════════════════ */
+    ════════════════════════════ */
     .hero {
-      padding: 5rem 0 0;
-      text-align: center;
+      padding: 5.5rem 0 0; text-align: center;
       position: relative; z-index: 2;
     }
-
-    /* the real first line — your pinned post */
-    .hero-statement {
+    .hero-h {
       font-family: var(--serif);
-      font-size: clamp(1.85rem, 4.8vw, 2.75rem);
-      font-weight: 400;
-      line-height: 1.3;
-      color: var(--ink);
-      letter-spacing: -0.01em;
-      max-width: 660px;
-      margin: 0 auto;
+      font-size: clamp(1.9rem, 5vw, 2.85rem);
+      font-weight: 400; line-height: 1.28;
+      color: var(--ink); letter-spacing: -0.01em;
+      max-width: 640px; margin: 0 auto;
     }
-    .hero-statement em { font-style: italic; color: var(--gold); }
+    .hero-h em { font-style: italic; color: var(--gold); }
 
-    /* second line — the gap line */
-    .hero-gap {
-      margin: 2.2rem auto 0;
-      max-width: 480px;
-      font-family: var(--fell);
-      font-style: italic;
-      font-size: 1.1rem;
-      color: var(--ink-3);
-      line-height: 1.7;
-    }
-    .hero-gap strong {
-      font-style: normal;
-      font-family: var(--body);
-      font-weight: 600;
-      color: var(--ink-2);
-      font-size: 0.95rem;
-      display: block;
-      margin-top: 0.5rem;
-      letter-spacing: 0.01em;
+    /* The bridge statement — the operating logic, visitor's first real signal */
+    .hero-bridge {
+      margin: 2rem auto 0; max-width: 520px;
+      font-family: var(--fell); font-style: italic;
+      font-size: 1.05rem; color: var(--ink-3); line-height: 1.72;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 1.1rem 0.5rem;
     }
 
-    /* status chips */
     .hero-meta {
       display: flex; justify-content: center;
       gap: 0.4rem 0.9rem; flex-wrap: wrap;
-      margin-top: 2rem; padding-bottom: 4rem;
+      margin-top: 1.8rem; padding-bottom: 4.5rem;
       border-bottom: 1px solid var(--rule);
     }
     .chip {
-      font-size: 0.66rem; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--ink-3);
-      border: 1px solid var(--rule-s); padding: 0.24rem 0.65rem;
+      font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-3); border: 1px solid var(--rule-s); padding: 0.24rem 0.65rem;
     }
-    .chip-live {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
+    .chip-live { border-color: var(--gold); color: var(--gold); }
 
-    /* ════════════════════════════════
+    /* ════════════════════════════
        PROBLEM STRIP
-       — mirrors, not a sales pitch
-    ════════════════════════════════ */
+    ════════════════════════════ */
     .problems { position: relative; z-index: 2; }
     .prob-inner {
       border-bottom: 1px solid var(--rule-s);
       display: grid; grid-template-columns: 1fr 1fr 1fr;
     }
     .prob {
-      padding: 1.7rem 1.4rem;
+      padding: 1.75rem 1.4rem;
       border-right: 1px solid var(--rule);
     }
     .prob:last-child { border-right: none; }
@@ -154,109 +150,126 @@
     }
     .prob p { font-size: 0.84rem; color: var(--ink-3); line-height: 1.58; }
 
-    /* ════════════════════════════════
+    /* ════════════════════════════
+       BRIDGE THINKING BLOCK
+       — sits between problems and games
+       — the operating principle made visible
+    ════════════════════════════ */
+    .bridge-block {
+      position: relative; z-index: 2;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .bridge-inner {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: start;
+    }
+    .bridge-label {
+      font-family: var(--fell); font-style: italic;
+      font-size: 0.78rem; color: var(--gold);
+      letter-spacing: 0.06em; padding-top: 0.2rem;
+      line-height: 1.5;
+    }
+    .bridge-label span {
+      display: block; font-style: normal;
+      font-family: var(--body); font-size: 0.62rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ink-4); margin-bottom: 0.35rem;
+    }
+    .bridge-text {
+      font-family: var(--fell); font-style: italic;
+      font-size: 1.08rem; color: var(--ink-2); line-height: 1.75;
+    }
+    .bridge-text strong {
+      font-style: normal; font-family: var(--body);
+      font-weight: 600; color: var(--ink); display: block;
+      font-size: 0.88rem; margin-top: 0.9rem;
+      padding-top: 0.9rem; border-top: 1px solid var(--rule);
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════════
        SECTION LABEL
-    ════════════════════════════════ */
+    ════════════════════════════ */
     .slabel {
-      font-size: 0.66rem; letter-spacing: 0.26em;
-      text-transform: uppercase; color: var(--ink-4);
-      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--ink-4); display: flex; align-items: center; gap: 0.7rem;
       margin-bottom: 1.2rem;
     }
     .slabel::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 
-    /* ════════════════════════════════
-       GAMES — proof section
-       sits BEFORE the framework,
-       because you ship before you advise
-    ════════════════════════════════ */
-    .games { padding: 3.8rem 0 0; position: relative; z-index: 2; }
-
-    .games-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1px;
-      background: var(--rule);
-      border: 1px solid var(--rule);
+    /* ════════════════════════════
+       GAMES — proof, not portfolio
+    ════════════════════════════ */
+    .games { padding: 3.5rem 0 0; position: relative; z-index: 2; }
+    .games-intro {
+      font-size: 0.84rem; color: var(--ink-3); font-style: italic;
+      font-family: var(--fell); margin-bottom: 1.4rem; max-width: 560px;
     }
-
+    .games-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+    }
     .gcard {
-      background: var(--bg-card);
-      padding: 1.5rem 1.35rem 1.4rem;
+      background: var(--bg-card); padding: 1.5rem 1.35rem 1.4rem;
       display: flex; flex-direction: column;
-      position: relative; overflow: hidden;
-      transition: background 0.22s;
+      position: relative; overflow: hidden; transition: background 0.22s;
     }
     .gcard:hover { background: var(--bg-card-h); }
     .gcard::after {
-      content: ''; position: absolute;
-      bottom: 0; left: 0; right: 0; height: 2px;
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
       background: linear-gradient(90deg, transparent, var(--gold-pale), transparent);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.32s ease;
+      transform: scaleX(0); transform-origin: left; transition: transform 0.32s ease;
     }
     .gcard:hover::after { transform: scaleX(1); }
-
-    /* colored top strip per game */
-    .gcard-stripe {
-      height: 3px;
-      margin: -1.5rem -1.35rem 1.1rem;
-      width: calc(100% + 2.7rem);
-    }
-    .stripe-terrace  { background: linear-gradient(90deg, #8a6020, #c8a040, #8a6020); }
-    .stripe-chapter  { background: linear-gradient(90deg, #406080, #80a8c0, #406080); }
-    .stripe-mushroom { background: linear-gradient(90deg, #507040, #90b860, #507040); opacity: 0.9; }
-
+    .gcard-stripe { height: 3px; margin: -1.5rem -1.35rem 1.1rem; width: calc(100% + 2.7rem); }
+    .stripe-terrace  { background: linear-gradient(90deg,#8a6020,#c8a040,#8a6020); }
+    .stripe-chapter  { background: linear-gradient(90deg,#406080,#80a8c0,#406080); }
+    .stripe-mushroom { background: linear-gradient(90deg,#507040,#90b860,#507040); }
     .gcard-engine {
-      font-size: 0.62rem; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--ink-4);
-      margin-bottom: 0.5rem;
+      font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-4); margin-bottom: 0.5rem;
     }
     .gcard h3 {
       font-family: var(--serif); font-size: 1.08rem;
-      font-weight: 600; color: var(--ink); line-height: 1.2;
-      margin-bottom: 0.5rem;
+      font-weight: 600; color: var(--ink); line-height: 1.2; margin-bottom: 0.45rem;
     }
-    /* the design question behind each game */
+    /* design question = the thesis each game is testing */
     .gcard-q {
       font-family: var(--fell); font-style: italic;
-      font-size: 0.88rem; color: var(--gold);
-      line-height: 1.5; margin-bottom: 0.55rem;
+      font-size: 0.87rem; color: var(--gold); line-height: 1.5; margin-bottom: 0.5rem;
     }
-    .gcard p {
-      font-size: 0.84rem; color: var(--ink-3);
-      line-height: 1.55; flex: 1;
+    .gcard p { font-size: 0.83rem; color: var(--ink-3); line-height: 1.55; flex: 1; }
+    /* proof note — connects game back to framework */
+    .gcard-proof {
+      font-size: 0.75rem; color: var(--ink-4); font-style: italic;
+      margin-top: 0.65rem; padding-top: 0.65rem;
+      border-top: 1px solid var(--rule);
+      font-family: var(--fell);
     }
     .gcard-status {
-      display: inline-block; margin-top: 1rem;
-      font-size: 0.62rem; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--ink-3);
-      border-bottom: 1px solid var(--rule-s);
+      display: inline-block; margin-top: 0.75rem;
+      font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-3); border-bottom: 1px solid var(--rule-s);
       padding-bottom: 1px; transition: color 0.2s;
     }
     .gcard:hover .gcard-status { color: var(--gold); }
     .status-live { color: var(--gold) !important; border-color: var(--gold-pale) !important; }
-
     .games-note {
-      margin-top: 1rem;
-      font-size: 0.78rem;
-      color: var(--ink-4);
-      font-style: italic;
-      text-align: right;
+      margin-top: 0.9rem; font-size: 0.76rem;
+      color: var(--ink-4); font-style: italic; text-align: right;
     }
 
-    /* ════════════════════════════════
-       FRAMEWORK GRID
-    ════════════════════════════════ */
-    .framework { padding: 3.8rem 0 0; position: relative; z-index: 2; }
+    /* ════════════════════════════
+       FRAMEWORK
+    ════════════════════════════ */
+    .framework { padding: 3.5rem 0 0; position: relative; z-index: 2; }
     .fw-grid {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 1px; background: var(--rule); border: 1px solid var(--rule);
     }
     .fw-card {
       background: var(--bg-card); padding: 1.55rem 1.5rem;
-      display: block; position: relative; overflow: hidden;
-      transition: background 0.22s;
+      display: block; position: relative; overflow: hidden; transition: background 0.22s;
     }
     .fw-card:hover { background: var(--bg-card-h); }
     .fw-card::after {
@@ -267,13 +280,11 @@
     .fw-card:hover::after { transform: scaleX(1); }
     .fw-n {
       font-family: var(--fell); font-style: italic;
-      font-size: 0.67rem; color: var(--ink-4);
-      display: block; margin-bottom: 0.4rem;
+      font-size: 0.67rem; color: var(--ink-4); display: block; margin-bottom: 0.4rem;
     }
     .fw-card h3 {
       font-family: var(--serif); font-size: 1.08rem;
-      font-weight: 600; color: var(--gold);
-      line-height: 1.2; margin-bottom: 0.45rem;
+      font-weight: 600; color: var(--gold); line-height: 1.2; margin-bottom: 0.45rem;
     }
     .fw-card p { font-size: 0.88rem; color: var(--ink-2); line-height: 1.55; }
     .fw-go {
@@ -284,25 +295,22 @@
     }
     .fw-card:hover .fw-go { color: var(--gold); }
     .fw-quote {
-      text-align: center; margin-top: 1.6rem;
+      text-align: center; margin-top: 1.5rem;
       font-family: var(--fell); font-style: italic;
       font-size: 0.97rem; color: var(--ink-4);
     }
 
-    /* ════════════════════════════════
-       WORK CARDS
-    ════════════════════════════════ */
-    .work { padding: 3.8rem 0 0; position: relative; z-index: 2; }
+    /* ════════════════════════════
+       WORK / DISSECTIONS
+    ════════════════════════════ */
+    .work { padding: 3.5rem 0 0; position: relative; z-index: 2; }
     .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .wcard {
       background: var(--bg-card); border: 1px solid var(--rule);
       display: flex; flex-direction: column; overflow: hidden;
       transition: border-color 0.25s, box-shadow 0.25s;
     }
-    .wcard:hover {
-      border-color: var(--gold-pale);
-      box-shadow: 0 4px 26px rgba(100,82,8,0.1);
-    }
+    .wcard:hover { border-color: var(--gold-pale); box-shadow: 0 4px 26px rgba(100,82,8,0.1); }
     .wvis { height: 68px; position: relative; overflow: hidden; }
     .wv1 { background: linear-gradient(110deg,#a08828 0%,#6a5818 55%,#3e3410 100%); }
     .wv2 { background: linear-gradient(110deg,#8a7840 0%,#5a4e18 55%,#322e0e 100%); }
@@ -319,10 +327,7 @@
       font-family: var(--fell); font-style: italic;
       font-size: 0.58rem; color: rgba(255,255,255,0.38); letter-spacing: 0.07em;
     }
-    .wbody {
-      padding: 1.1rem 1.25rem; flex: 1;
-      display: flex; flex-direction: column; gap: 0.48rem;
-    }
+    .wbody { padding: 1.1rem 1.25rem; flex: 1; display: flex; flex-direction: column; gap: 0.48rem; }
     .wbody h3 {
       font-family: var(--serif); font-size: 1rem;
       font-weight: 600; color: var(--ink); line-height: 1.25;
@@ -337,68 +342,93 @@
     .wfoot {
       padding: 0.65rem 1.25rem; border-top: 1px solid var(--rule);
       display: flex; align-items: center; justify-content: space-between;
-      font-size: 0.76rem; color: var(--ink-3); letter-spacing: 0.03em;
-      transition: color 0.2s;
+      font-size: 0.76rem; color: var(--ink-3); transition: color 0.2s;
     }
     .wcard:hover .wfoot { color: var(--gold); }
     .wfoot svg { transition: transform 0.2s; }
     .wcard:hover .wfoot svg { transform: translateX(3px); }
 
-    /* ════════════════════════════════
-       BOTTOM ROW
-    ════════════════════════════════ */
-    .bottom {
-      padding: 3.8rem 0 5.5rem; position: relative; z-index: 2;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1rem; align-items: start;
+    /* ════════════════════════════
+       APPLIED IMPACT
+       — real conversations, real proof
+    ════════════════════════════ */
+    .impact { padding: 3.5rem 0 0; position: relative; z-index: 2; }
+    .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .icard {
+      background: var(--bg-card); border: 1px solid var(--rule);
+      padding: 1.4rem 1.4rem 1.2rem;
     }
+    .icard-context {
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-4); margin-bottom: 0.7rem;
+    }
+    /* the insight — what was said, anonymized */
+    .icard-quote {
+      font-family: var(--fell); font-style: italic;
+      font-size: 0.95rem; color: var(--ink); line-height: 1.65;
+      padding-left: 0.8rem; border-left: 2px solid var(--gold-pale);
+      margin-bottom: 0.75rem;
+    }
+    .icard-outcome {
+      font-size: 0.8rem; color: var(--ink-3); line-height: 1.55;
+    }
+    .icard-outcome strong { color: var(--ink-2); font-weight: 600; }
 
-    /* Field Notes — Monday Note presence */
+    /* ════════════════════════════
+       BOTTOM — notes + work together
+    ════════════════════════════ */
+    .bottom {
+      padding: 3.5rem 0 5.5rem; position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start;
+    }
     .notes h2 {
       font-family: var(--serif); font-size: 1.28rem;
       font-weight: 400; color: var(--ink); margin-bottom: 0.5rem;
     }
     .notes-sub {
-      font-size: 0.78rem; color: var(--ink-4); margin-bottom: 1rem;
+      font-size: 0.76rem; color: var(--ink-4); margin-bottom: 1rem;
       font-style: italic; font-family: var(--fell);
     }
     .note-item {
       border-left: 1px solid var(--rule-s);
-      padding: 0.6rem 0 0.6rem 0.9rem;
-      margin-bottom: 0.7rem;
+      padding: 0.6rem 0 0.6rem 0.9rem; margin-bottom: 0.7rem;
     }
     .note-item p {
       font-family: var(--fell); font-style: italic;
-      font-size: 0.92rem; color: var(--ink-2); line-height: 1.6;
+      font-size: 0.9rem; color: var(--ink-2); line-height: 1.6;
     }
     .note-item span {
       display: block; margin-top: 0.2rem;
-      font-size: 0.63rem; letter-spacing: 0.12em;
+      font-size: 0.62rem; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--ink-4);
     }
     .notes-link {
       display: inline-block; margin-top: 0.5rem;
-      font-size: 0.67rem; letter-spacing: 0.15em; text-transform: uppercase;
+      font-size: 0.66rem; letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--ink-3); border-bottom: 1px solid var(--rule-s);
       padding-bottom: 1px; transition: color 0.2s;
     }
     .notes-link:hover { color: var(--gold); }
 
-    /* Consulting */
-    .consult {
-      background: var(--bg-card); border: 1px solid var(--rule);
-      padding: 1.8rem 1.65rem;
-    }
+    .consult { background: var(--bg-card); border: 1px solid var(--rule); padding: 1.8rem 1.65rem; }
     .consult h2 {
       font-family: var(--serif); font-size: 1.28rem;
       font-weight: 400; color: var(--ink); margin-bottom: 0.6rem;
     }
-    .consult p { font-size: 0.87rem; color: var(--ink-2); line-height: 1.65; margin-bottom: 1rem; }
+    /* the real pitch line */
+    .consult-pitch {
+      font-family: var(--fell); font-style: italic;
+      font-size: 1rem; color: var(--ink-2); line-height: 1.65;
+      margin-bottom: 0.9rem; padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .consult p { font-size: 0.87rem; color: var(--ink-3); line-height: 1.65; margin-bottom: 1rem; }
     .ctags { display: flex; flex-wrap: wrap; gap: 0.33rem; margin-bottom: 1.2rem; }
     .ctag {
       font-size: 0.62rem; letter-spacing: 0.11em; text-transform: uppercase;
       color: var(--ink-3); border: 1px solid var(--rule-s); padding: 0.17rem 0.48rem;
     }
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
     .btn {
       display: inline-block; padding: 0.46rem 1.3rem;
       border: 1px solid var(--gold); color: var(--gold);
@@ -407,10 +437,14 @@
       transition: background 0.2s, color 0.2s;
     }
     .btn:hover { background: var(--gold); color: var(--bg); }
+    .btn-ghost {
+      border-color: var(--rule-s); color: var(--ink-3);
+    }
+    .btn-ghost:hover { background: var(--bg-card-h); color: var(--ink-2); }
 
-    /* ════════════════════════════════
+    /* ════════════════════════════
        FOOTER
-    ════════════════════════════════ */
+    ════════════════════════════ */
     footer {
       border-top: 1px solid var(--rule); text-align: center; padding: 1.35rem;
       font-size: 0.66rem; letter-spacing: 0.13em; text-transform: uppercase;
@@ -419,108 +453,90 @@
     footer a { border-bottom: 1px solid var(--rule); transition: color 0.2s; }
     footer a:hover { color: var(--gold); }
 
-    /* ════════════════════════════════
-       ANIMATIONS
-    ════════════════════════════════ */
+    /* ════════════════════════════
+       ENTRY ANIMATIONS
+    ════════════════════════════ */
     @keyframes rise {
       from { opacity: 0; transform: translateY(14px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    header     { animation: rise 0.65s ease both; }
-    .hero      { animation: rise 0.65s 0.07s ease both; }
-    .problems  { animation: rise 0.65s 0.14s ease both; }
-    .games     { animation: rise 0.65s 0.20s ease both; }
-    .framework { animation: rise 0.65s 0.26s ease both; }
-    .work      { animation: rise 0.65s 0.32s ease both; }
-    .bottom    { animation: rise 0.65s 0.38s ease both; }
+    header        { animation: rise 0.65s ease both; }
+    .hero         { animation: rise 0.65s 0.07s ease both; }
+    .problems     { animation: rise 0.65s 0.13s ease both; }
+    .bridge-block { animation: rise 0.65s 0.18s ease both; }
+    .games        { animation: rise 0.65s 0.22s ease both; }
+    .framework    { animation: rise 0.65s 0.27s ease both; }
+    .work         { animation: rise 0.65s 0.31s ease both; }
+    .impact       { animation: rise 0.65s 0.35s ease both; }
+    .bottom       { animation: rise 0.65s 0.39s ease both; }
 
-    /* ════════════════════════════════
+    /* ════════════════════════════
        RESPONSIVE
-    ════════════════════════════════ */
+    ════════════════════════════ */
     @media (max-width: 640px) {
-      .prob-inner, .games-grid, .fw-grid, .work-grid, .bottom {
-        grid-template-columns: 1fr;
-      }
+      body { cursor: auto; }
+      .prob-inner, .games-grid, .fw-grid, .work-grid,
+      .impact-grid, .bottom, .bridge-inner { grid-template-columns: 1fr; }
       .prob { border-right: none; border-bottom: 1px solid var(--rule); }
       .prob:last-child { border-bottom: none; }
-      .gcard-stripe { margin: -1.5rem -1.35rem 1.1rem; }
       .hero { padding: 3rem 0 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Botanical corners — inline SVG, zero external dependencies -->
-  <div class="bot bot-tr" aria-hidden="true">
-    <svg width="230" height="210" viewBox="0 0 230 210" fill="none">
-      <g stroke="#8a7a2e" stroke-width="1.1">
-        <path d="M230 0 Q192 52 148 108 Q116 148 82 202"/>
-        <path d="M208 0 Q178 44 142 90 Q116 128 92 180"/>
-        <path d="M230 28 Q200 56 172 88"/>
-        <path d="M148 108 Q130 86 115 62"/>
-        <path d="M142 90 Q126 70 112 48"/>
-        <path d="M108 150 Q93 132 80 112"/>
-      </g>
-      <ellipse cx="115" cy="61" rx="8" ry="3.5" transform="rotate(-38 115 61)" fill="#c9b84c" opacity="0.55"/>
-      <ellipse cx="111" cy="47" rx="6" ry="3" transform="rotate(-22 111 47)" fill="#c9b84c" opacity="0.45"/>
-      <ellipse cx="80" cy="111" rx="7" ry="3" transform="rotate(12 80 111)" fill="#a09050" opacity="0.45"/>
-      <ellipse cx="172" cy="87" rx="7" ry="3" transform="rotate(40 172 87)" fill="#c9b84c" opacity="0.4"/>
-    </svg>
-  </div>
-  <div class="bot bot-bl" aria-hidden="true">
-    <svg width="200" height="190" viewBox="0 0 200 190" fill="none">
-      <g stroke="#8a7a2e" stroke-width="1">
-        <path d="M0 190 Q44 146 96 100 Q138 60 195 18"/>
-        <path d="M0 160 Q40 122 86 82 Q126 46 188 8"/>
-        <path d="M96 100 Q78 78 62 56"/>
-        <path d="M86 82 Q70 62 56 42"/>
-      </g>
-      <ellipse cx="62" cy="55" rx="7" ry="3" transform="rotate(-42 62 55)" fill="#c9b84c" opacity="0.5"/>
-      <ellipse cx="55" cy="41" rx="5.5" ry="2.5" transform="rotate(-26 55 41)" fill="#a09050" opacity="0.4"/>
-    </svg>
-  </div>
+  <canvas id="lemon-bg"></canvas>
+  <canvas id="trail-canvas"></canvas>
+  <canvas id="dust-canvas"></canvas>
 
-  <!-- HEADER -->
+  <!-- Lemon cursor -->
+  <svg id="cursor" viewBox="-24 -15 48 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="cglow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="2.2" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <path d="M20.5,0 C19.5,-6 12,-13 0,-13 C-12,-13 -19.5,-6 -20.5,0 C-19.5,6 -12,13 0,13 C12,13 19.5,6 20.5,0Z"
+          stroke="rgba(210,172,40,0.22)" stroke-width="5" fill="none"/>
+    <path d="M20.5,0 C19.5,-6 12,-13 0,-13 C-12,-13 -19.5,-6 -20.5,0 C-19.5,6 -12,13 0,13 C12,13 19.5,6 20.5,0Z"
+          stroke="rgba(235,198,55,0.6)" stroke-width="1.4" fill="none" filter="url(#cglow)"/>
+    <path d="M20.5,0 C19.5,-6 12,-13 0,-13 C-12,-13 -19.5,-6 -20.5,0 C-19.5,6 -12,13 0,13 C12,13 19.5,6 20.5,0Z"
+          stroke="rgba(255,242,160,0.85)" stroke-width="0.55" fill="rgba(220,185,50,0.05)"/>
+    <path d="M20.5,0 C21.8,-1 22.6,0 20.5,0Z" stroke="rgba(235,198,55,0.7)" stroke-width="1"/>
+    <ellipse cx="-3" cy="-5.5" rx="5" ry="2" transform="rotate(-18 -3 -5.5)" fill="rgba(255,250,200,0.22)"/>
+  </svg>
+
+  <!-- ══ HEADER ══ -->
   <header>
     <div class="wrap">
       <a href="/" class="logo">Lemonfield</a>
-      <p class="sub">Narrative &amp; Atmospheric Designer &nbsp;·&nbsp; Emotional Logic &nbsp;·&nbsp; Story Systems</p>
+      <p class="sub">Narrative System &amp; Atmospheric Design &nbsp;·&nbsp; Story Systems &nbsp;·&nbsp; Psychological Pacing</p>
     </div>
   </header>
 
   <main>
 
     <!-- ══ HERO ══
-         Opens with your actual words — not a job title, not a pitch.
-         "Most games give rewards. I design gaps." is the trap.
-         Anyone who understands what that means is already hooked.
+         Two lines. That's it.
+         The bridge statement below does the explaining.
     -->
     <section class="hero wrap">
-      <h1 class="hero-statement">
+      <h1 class="hero-h">
         Most games give rewards.<br>
         <em>I design gaps.</em>
       </h1>
-      <div class="hero-gap">
-        A controlled gap creates intention.<br>
-        When something feels incomplete, players don't just interact — they commit.
-        <strong>
-          I'm less interested in adding features,<br>
-          and more interested in why they don't belong.
-        </strong>
-      </div>
+      <p class="hero-bridge">
+        What keeps players is designed
+      </p>
       <div class="hero-meta">
         <span class="chip chip-live">Shipped: Terrace · Last Chapter</span>
         <span class="chip">In Dev: Mushroom!</span>
-        <span class="chip">Applied Design</span>
-        <span class="chip">Available for Consulting</span>
+        <span class="chip">Consulting · Contract · Open to Roles</span>
       </div>
     </section>
 
-    <!-- ══ PROBLEM STRIP ══
-         Not "here's what I offer."
-         Three problems your target visitor has right now.
-         They recognize themselves. That's the hook.
-    -->
+    <!-- ══ PROBLEM STRIP ══ -->
     <div class="problems">
       <div class="wrap">
         <div class="prob-inner">
@@ -534,28 +550,50 @@
           </div>
           <div class="prob">
             <h3>The character is consistent but stopped feeling alive</h3>
-            <p>Voice erosion across updates is rarely dramatic. It's slow — until players stop trusting the relationship. By then, the attachment loss is already in the numbers.</p>
+            <p>Voice erosion across updates is slow — until players stop trusting the relationship. By then, the attachment loss is already in the numbers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ BRIDGE THINKING ══
+         The operating principle. How the mind actually works.
+         Not a bio. Not credentials. The lens.
+    -->
+    <div class="bridge-block">
+      <div class="wrap">
+        <div class="bridge-inner">
+          <div class="bridge-label">
+            <span>How I See</span>
+            The Bridge
+          </div>
+          <div class="bridge-text">
+            In horror, clutter is dangerous if it is decorative clutter. If everything looks interactable but isn't, tension becomes noise. Oppression requires controlled focus.
+            <strong>
+              This is the lens I bring to every system — not just horror. Every element either has weight or it creates confusion. Weight isn't complexity. It's intention made felt. I look for where the system is speaking and where the experience is hearing something else entirely.
+            </strong>
           </div>
         </div>
       </div>
     </div>
 
     <!-- ══ SHIPPED GAMES ══
-         These come BEFORE the framework.
-         Because you ship before you advise.
-         The design question behind each game IS the proof of the framework.
+         Each game is a live test of the framework.
+         Not "my projects" — proof the thinking is real and playable.
     -->
     <section class="games wrap">
       <p class="slabel">Shipped &amp; In Development</p>
+      <p class="games-intro">Each game is a playable prototype of a design question. The framework isn't theoretical — it's been built, shipped, and tested on real players.</p>
       <div class="games-grid">
 
-        <a href="https://oflili.github.io/lemonfield/terrace" class="gcard">
+        <a href="https://oflili.itch.io/terrace" target="_blank" rel="noopener" class="gcard">
           <div class="gcard-stripe stripe-terrace"></div>
           <p class="gcard-engine">Ren'Py · Interactive Point &amp; Click</p>
           <h3>Terrace</h3>
           <p class="gcard-q">What if interaction reduces the world instead of building it?</p>
           <p>The player builds the world themselves — through interpretation, not instruction. World-state shifts based on what you choose not to do.</p>
-          <span class="gcard-status status-live">Shipped · Game Jam ↗</span>
+          <p class="gcard-proof">Proof of: controlled absence as narrative architecture</p>
+          <span class="gcard-status status-live">Play Now · itch.io ↗</span>
         </a>
 
         <a href="#" class="gcard">
@@ -564,7 +602,8 @@
           <h3>Last Chapter</h3>
           <p class="gcard-q">What does it mean when the loop knows it's a loop?</p>
           <p>Meta-loop system. The narrative structure itself becomes the subject. Branches aware of their own recursion.</p>
-          <span class="gcard-status">Upcoming · Game Jam</span>
+          <p class="gcard-proof">Proof of: structural self-awareness as emotional weight</p>
+          <span class="gcard-status status-live">Shipped · Link Coming ↗</span>
         </a>
 
         <a href="#" class="gcard">
@@ -572,56 +611,51 @@
           <p class="gcard-engine">Godot · Puzzle Narrative Hybrid</p>
           <h3>Mushroom!</h3>
           <p class="gcard-q">What happens when a game intentionally contradicts itself?</p>
-          <p>Strategic pick-and-drag puzzle mechanics layered with narrative lore that actively conflicts with the rules. Controlled contradiction as design.</p>
-          <span class="gcard-status">In Development</span>
+          <p>Strategic puzzle mechanics layered with narrative lore that actively conflicts with the rules. Controlled contradiction as design intent.</p>
+          <p class="gcard-proof">Proof of: contradiction as controlled focus</p>
+          <span class="gcard-status">In Development · Next Week</span>
         </a>
 
       </div>
-      <p class="games-note">All visuals hand-drawn in IbisPaint. All BGM composed in LMMS.</p>
+      <p class="games-note">All visuals hand-drawn in IbisPaint · All BGM composed in LMMS</p>
     </section>
 
     <!-- ══ FRAMEWORK ══ -->
     <section class="framework wrap">
       <p class="slabel">Framework</p>
       <div class="fw-grid">
-
         <a href="/character-behavior" class="fw-card">
           <span class="fw-n">01</span>
           <h3>Character &amp; Behavior</h3>
           <p>Emotional authenticity as a retention mechanic. Characters who exist past the end of the story — and keep players invested past the end of their patience.</p>
           <span class="fw-go">Explore Framework →</span>
         </a>
-
         <a href="/systems-perception" class="fw-card">
           <span class="fw-n">02</span>
           <h3>Systems &amp; Perception</h3>
           <p>How mechanics are framed determines what players feel — not just what they do. The same system builds trust or breeds quiet resentment depending on how it reads.</p>
           <span class="fw-go">Explore Framework →</span>
         </a>
-
         <a href="/audio-atmosphere" class="fw-card">
           <span class="fw-n">03</span>
           <h3>Audio &amp; Atmosphere</h3>
           <p>Sound that reveals truth before dialogue does. Atmosphere isn't decoration — it's a delivery system that bypasses the player's conscious guard.</p>
           <span class="fw-go">Explore Framework →</span>
         </a>
-
         <a href="/ui-experience" class="fw-card">
           <span class="fw-n">04</span>
           <h3>UI &amp; Experience</h3>
           <p>Information density builds or shatters immersion. Every data layer is a decision about how much the player is allowed to feel.</p>
           <span class="fw-go">Explore Framework →</span>
         </a>
-
       </div>
       <p class="fw-quote">Not all systems behave. Some must be listened to.</p>
     </section>
 
-    <!-- ══ SELECTED WORK ══ -->
+    <!-- ══ WORK / DISSECTIONS ══ -->
     <section class="work wrap">
       <p class="slabel">System Dissections &amp; Applied Analysis</p>
       <div class="work-grid">
-
         <a href="/work/discord-rp-hunt" class="wcard">
           <div class="wvis wv1"><span class="wvis-l">System Architecture</span></div>
           <div class="wbody">
@@ -634,7 +668,6 @@
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M8 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
         </a>
-
         <a href="/work/branching-narrative" class="wcard">
           <div class="wvis wv2"><span class="wvis-l">Narrative Map</span></div>
           <div class="wbody">
@@ -647,12 +680,11 @@
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M8 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
         </a>
-
         <a href="/work/live-ops-paradox" class="wcard">
           <div class="wvis wv3"><span class="wvis-l">Revenue / Narrative Analysis</span></div>
           <div class="wbody">
             <h3>The Live-Ops Paradox in Character-Driven Gacha</h3>
-            <p class="w-ins">Short-term fanservice doesn't just erode story — it withdraws the veteran player's primary reason to spend. The numbers follow the narrative, not the other way.</p>
+            <p class="w-ins">Short-term fanservice doesn't just erode story — it withdraws the veteran player's primary reason to spend. The numbers follow the narrative.</p>
             <p class="w-meta"><strong>Context:</strong> Narrative integrity events correlated with high-value retention</p>
             <p class="w-meta"><strong>Conclusion:</strong> Every symbolic shift must be earned through story, not gifted by hype</p>
           </div>
@@ -660,7 +692,6 @@
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M8 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
         </a>
-
         <a href="/work/voice-integrity" class="wcard">
           <div class="wvis wv4"><span class="wvis-l">Voice Consistency Analysis</span></div>
           <div class="wbody">
@@ -673,36 +704,49 @@
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M8 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
         </a>
+      </div>
+    </section>
 
+    <!-- ══ APPLIED IMPACT ══
+         Real conversations. Real proof.
+         Anonymized but honest — shows thinking lands in practice, not just theory.
+    -->
+    <section class="impact wrap">
+      <p class="slabel">Applied Impact</p>
+      <div class="impact-grid">
+        <div class="icard">
+          <p class="icard-context">Discord · Game Dev Feedback · Hunt System</p>
+          <p class="icard-quote">"I actually think your core idea is interesting. Since you're planning multiple hunts with several players per group, you'll need a clean way to manage each hunt as its own session... your biggest challenge won't be mechanics, but state management and concurrency."</p>
+          <p class="icard-outcome"><strong>Outcome:</strong> Developer acknowledged backend structure considerations and integrated them into planning documentation.</p>
+        </div>
+        <div class="icard">
+          <p class="icard-context">Discord · Twine Narrative · Branching Design</p>
+          <p class="icard-quote">"When you play through each branch, does it feel different? Or does it just route differently? Sometimes when structure is solid but it still feels off, it's because not every branch changes player perception or stakes. What usually feels missing in branching design isn't math. It's weight."</p>
+          <p class="icard-outcome"><strong>Outcome:</strong> Developer adopted a stress-testing lens focused on experiential distinction rather than structural completeness.</p>
+        </div>
       </div>
     </section>
 
     <!-- ══ BOTTOM ══ -->
     <div class="bottom wrap">
-
-      <!-- Monday Field Notes — your ongoing thinking, visible -->
       <div class="notes">
         <h2>Monday Field Notes</h2>
         <p class="notes-sub">Weekly observations on systems, design, and what games fail to say</p>
-
         <div class="note-item">
-          <p>Most games give rewards. I design gaps. A controlled gap creates intention. Systems create absence.</p>
+          <p>Most games give rewards. I design gaps. A controlled gap creates intention — systems create absence, and absence creates want.</p>
           <span>Field Note 04</span>
         </div>
         <div class="note-item">
           <p>I'm less interested in adding features, and more interested in why they don't belong.</p>
           <span>Pinned · @oflili_</span>
         </div>
-
-        <a href="https://x.com/oflili_" target="_blank" rel="noopener" class="notes-link">
-          Read on X @oflili_ →
-        </a>
+        <a href="https://x.com/oflili_" target="_blank" rel="noopener" class="notes-link">Read on X @oflili_ →</a>
       </div>
 
-      <!-- Consulting -->
       <div class="consult">
-        <h2>Consulting &amp; Analysis</h2>
-        <p>I work best when the problem doesn't have a clean name yet. Available for narrative system design, applied analysis, and consultation.</p>
+        <h2>Work Together</h2>
+        <p class="consult-pitch">I find what's breaking your player's trust before your team can name it.</p>
+        <p>Available for consulting, contract work, and open to studio roles. I work best when the problem doesn't have a clean name yet — when the system is technically sound but something is still wrong and nobody can explain exactly what.</p>
         <div class="ctags">
           <span class="ctag">Narrative Systems</span>
           <span class="ctag">Player Psychology</span>
@@ -710,10 +754,13 @@
           <span class="ctag">Branching Design</span>
           <span class="ctag">Voice &amp; Character</span>
           <span class="ctag">System Stress Testing</span>
+          <span class="ctag">Atmospheric Design</span>
         </div>
-        <a href="/contact" class="btn">Get in Touch</a>
+        <div class="btn-row">
+          <a href="/contact" class="btn">Get in Touch</a>
+          <a href="/cv" class="btn btn-ghost">View CV</a>
+        </div>
       </div>
-
     </div>
 
   </main>
@@ -726,5 +773,328 @@
     </div>
   </footer>
 
+  <script>
+  /* ═══════════════════════════════════════════════════════════
+     LEMON SYSTEM — three behaviors, one intention
+     
+     Scroll  → lemons grow. Absence becomes presence.
+               The page itself demonstrates the gap theory.
+     
+     Cursor  → presence. Every move leaves a trace.
+               The player is always affecting the world.
+     
+     Click   → commitment. Pixie dust lemons burst outward.
+               Interaction has weight. Actions leave marks.
+  ═══════════════════════════════════════════════════════════ */
+
+  /* ── Shared: parametric lemon point generator ── */
+  function lemonPts(rx, ry, N) {
+    const pts = [], asym = 0.22, tip = 1.62;
+    for (let i = 0; i <= N; i++) {
+      const t  = (i / N) * Math.PI * 2;
+      const px = rx * Math.cos(t) * (1 + asym * Math.cos(t));
+      const py = ry * Math.sin(t) * Math.pow(Math.abs(Math.sin(t * 0.5)) + 0.001, tip) * 1.88;
+      pts.push({ x: px, y: py });
+    }
+    return pts;
+  }
+
+  function tracePts(ctx, pts) {
+    ctx.beginPath();
+    ctx.moveTo(pts[0].x, pts[0].y);
+    for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+    ctx.closePath();
+  }
+
+  /* ═══════════════════════════════════
+     1. BACKGROUND LEMON FIELD
+        Lemons start small/faint.
+        As visitor scrolls deeper, each lemon 
+        grows toward its full size — demonstrating
+        the gap theory visually: small becomes present.
+  ═══════════════════════════════════ */
+  (function() {
+    const canvas = document.getElementById('lemon-bg');
+    const ctx    = canvas.getContext('2d');
+    let W, H;
+
+    const LEMONS = [
+      { xp:.08,  yp:.03,  base:36,  op:.11, rot:-.3  },
+      { xp:.88,  yp:.04,  base:50,  op:.09, rot: .4  },
+      { xp:.20,  yp:.12,  base:26,  op:.08, rot:-.6  },
+      { xp:.76,  yp:.13,  base:44,  op:.10, rot: .2  },
+      { xp:.93,  yp:.24,  base:34,  op:.07, rot:-.1  },
+      { xp:.04,  yp:.32,  base:60,  op:.07, rot: .5  },
+      { xp:.54,  yp:.30,  base:28,  op:.08, rot: .7  },
+      { xp:.83,  yp:.43,  base:72,  op:.06, rot:-.4  },
+      { xp:.13,  yp:.50,  base:48,  op:.07, rot: .3  },
+      { xp:.64,  yp:.53,  base:40,  op:.09, rot:-.2  },
+      { xp:.36,  yp:.61,  base:56,  op:.06, rot: .6  },
+      { xp:.91,  yp:.63,  base:82,  op:.05, rot:-.5  },
+      { xp:.23,  yp:.71,  base:64,  op:.07, rot: .1  },
+      { xp:.69,  yp:.74,  base:92,  op:.05, rot: .4  },
+      { xp:.47,  yp:.81,  base:76,  op:.06, rot:-.3  },
+      { xp:.11,  yp:.87,  base:104, op:.04, rot: .2  },
+      { xp:.84,  yp:.88,  base:112, op:.04, rot:-.6  },
+      { xp:.50,  yp:.95,  base:124, op:.04, rot: .3  },
+    ];
+
+    function glowLemon(x, y, rx, ry, rot, op, scrollFrac) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rot);
+
+      const pts = lemonPts(rx, ry, 100);
+      const g   = scrollFrac * 0.6; // glow intensity from scroll
+
+      // layer 1 — wide soft halo
+      ctx.strokeStyle = `rgba(175,142,18,${op * 0.22})`;
+      ctx.lineWidth   = rx * 0.26;
+      ctx.shadowBlur  = 0;
+      tracePts(ctx, pts); ctx.stroke();
+
+      // layer 2 — colored glow ring
+      ctx.strokeStyle = `rgba(215,175,38,${op * 0.38 + g * 0.1})`;
+      ctx.lineWidth   = rx * 0.10;
+      ctx.shadowColor = `rgba(225,188,48,${op * 0.55 + g * 0.2})`;
+      ctx.shadowBlur  = 8 + g * 22;
+      tracePts(ctx, pts); ctx.stroke();
+
+      // layer 3 — bright core
+      ctx.strokeStyle = `rgba(245,215,75,${op * 0.65 + g * 0.2})`;
+      ctx.lineWidth   = 0.9;
+      ctx.shadowColor = `rgba(255,232,95,${op * 0.85 + g * 0.15})`;
+      ctx.shadowBlur  = 4 + g * 12;
+      tracePts(ctx, pts); ctx.stroke();
+
+      // layer 4 — white-gold hot center (only visible when scrolled into)
+      if (g > 0.3) {
+        ctx.strokeStyle = `rgba(255,248,190,${(g - 0.3) * 0.5})`;
+        ctx.lineWidth   = 0.4;
+        ctx.shadowBlur  = 3;
+        tracePts(ctx, pts); ctx.stroke();
+      }
+
+      // nub
+      const nubX = rx * 1.22, nubL = rx * 0.16, nubH = ry * 0.14;
+      ctx.lineWidth   = 0.8;
+      ctx.strokeStyle = `rgba(220,185,48,${op * 0.55 + g * 0.15})`;
+      ctx.shadowBlur  = 4 + g * 8;
+      ctx.beginPath();
+      ctx.moveTo(nubX, 0);
+      ctx.bezierCurveTo(nubX+nubL*.5,-nubH, nubX+nubL*.5,nubH, nubX+nubL, 0);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    function pageH() {
+      return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    }
+
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = pageH();
+    }
+
+    function render() {
+      const ph = pageH();
+      if (canvas.height !== ph) { canvas.height = ph; H = ph; }
+      ctx.clearRect(0, 0, W, H);
+
+      LEMONS.forEach(l => {
+        const x  = l.xp * W;
+        const y  = l.yp * ph;
+        // Each lemon "activates" as the viewport scrolls to reach it.
+        // At rest (page top), it's at 45% size. Fully visible = 100%.
+        const scrollReach   = window.scrollY + window.innerHeight;
+        const lemonReachFrac = Math.min(1, Math.max(0, (scrollReach - y * 0.4) / (y * 0.7 + 1)));
+        const size  = l.base * (0.45 + lemonReachFrac * 0.55);
+        const rx    = size, ry = size * 0.60;
+        glowLemon(x, y, rx, ry, l.rot, l.op, lemonReachFrac);
+      });
+    }
+
+    window.addEventListener('resize', () => { resize(); render(); });
+    window.addEventListener('scroll', render, { passive: true });
+    resize(); render();
+  })();
+
+
+  /* ═══════════════════════════════════
+     2. CURSOR + PRESENCE TRAIL
+        Cursor = lemon. Every move leaves
+        a fading trace — the visitor's path
+        through the page is made visible.
+        Presence has weight.
+  ═══════════════════════════════════ */
+  (function() {
+    const cursor = document.getElementById('cursor');
+    const trail  = document.getElementById('trail-canvas');
+    const tctx   = trail.getContext('2d');
+
+    trail.width  = window.innerWidth;
+    trail.height = window.innerHeight;
+    window.addEventListener('resize', () => {
+      trail.width  = window.innerWidth;
+      trail.height = window.innerHeight;
+    });
+
+    // trail points: [{x, y, age}]
+    const trailPts = [];
+    const TRAIL_MAX = 28;
+    const TRAIL_DECAY = 0.045;
+    let mx = -200, my = -200;
+    let onInteractive = false;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top  = my + 'px';
+      cursor.classList.add('visible');
+
+      trailPts.push({ x: mx, y: my, alpha: 0.45 });
+      if (trailPts.length > TRAIL_MAX) trailPts.shift();
+    });
+
+    document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
+    document.addEventListener('mouseenter', () => cursor.classList.add('visible'));
+
+    document.addEventListener('mousedown', () => cursor.classList.add('pressing'));
+    document.addEventListener('mouseup',   () => cursor.classList.remove('pressing'));
+
+    // cursor grows on interactive elements
+    document.addEventListener('mouseover', e => {
+      const t = e.target.closest('a, button, .fw-card, .wcard, .gcard, .icard');
+      if (t) { cursor.classList.add('on-link'); }
+      else   { cursor.classList.remove('on-link'); }
+    });
+
+    function drawTrail() {
+      tctx.clearRect(0, 0, trail.width, trail.height);
+      for (let i = 1; i < trailPts.length; i++) {
+        const p0 = trailPts[i - 1];
+        const p1 = trailPts[i];
+        const frac = i / trailPts.length;
+        const a = p1.alpha * frac * 0.55;
+        tctx.save();
+        tctx.strokeStyle = `rgba(210,175,42,${a})`;
+        tctx.lineWidth   = frac * 1.8;
+        tctx.shadowColor = `rgba(240,205,60,${a * 0.8})`;
+        tctx.shadowBlur  = 4;
+        tctx.lineCap     = 'round';
+        tctx.beginPath();
+        tctx.moveTo(p0.x, p0.y);
+        tctx.lineTo(p1.x, p1.y);
+        tctx.stroke();
+        tctx.restore();
+        // decay
+        trailPts[i].alpha = Math.max(0, trailPts[i].alpha - TRAIL_DECAY);
+      }
+      requestAnimationFrame(drawTrail);
+    }
+    drawTrail();
+  })();
+
+
+  /* ═══════════════════════════════════
+     3. CLICK → PIXIE DUST LEMONS
+        Clicking an interactive element
+        bursts lemon-shaped particles outward.
+        Actions leave marks.
+        Commitment is visible.
+  ═══════════════════════════════════ */
+  (function() {
+    const canvas = document.getElementById('dust-canvas');
+    const ctx    = canvas.getContext('2d');
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    window.addEventListener('resize', () => {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    const particles = [];
+
+    function spawnBurst(x, y) {
+      const count = 26;
+      for (let i = 0; i < count; i++) {
+        const angle = (Math.PI * 2 * i / count) + (Math.random() - .5) * 0.6;
+        const speed = 1.5 + Math.random() * 4;
+        const isLemon = Math.random() > 0.45;
+        particles.push({
+          x, y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - 1.4,
+          alpha: 0.92,
+          decay: 0.02 + Math.random() * 0.018,
+          r: 2.5 + Math.random() * 3.8,
+          rot: Math.random() * Math.PI * 2,
+          rotV: (Math.random() - .5) * 0.12,
+          isLemon,
+          hue: 38 + Math.floor(Math.random() * 22),
+        });
+      }
+    }
+
+    function drawParticleLemon(p) {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      const rx = p.r, ry = p.r * 0.60;
+      const pts = lemonPts(rx, ry, 28);
+
+      ctx.globalAlpha = p.alpha * 0.28;
+      ctx.strokeStyle = `hsl(${p.hue},80%,55%)`;
+      ctx.lineWidth   = rx * 0.25;
+      ctx.shadowColor = `hsl(${p.hue},90%,65%)`;
+      ctx.shadowBlur  = 6;
+      tracePts(ctx, pts); ctx.stroke();
+
+      ctx.globalAlpha = p.alpha * 0.9;
+      ctx.strokeStyle = `hsl(${p.hue+10},90%,80%)`;
+      ctx.lineWidth   = 0.7;
+      ctx.shadowBlur  = 3;
+      tracePts(ctx, pts); ctx.stroke();
+
+      ctx.restore();
+    }
+
+    function loop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x  += p.vx; p.y += p.vy;
+        p.vy += 0.09; // gravity
+        p.rot  += p.rotV;
+        p.alpha -= p.decay;
+        if (p.alpha <= 0) { particles.splice(i, 1); continue; }
+
+        if (p.isLemon) {
+          drawParticleLemon(p);
+        } else {
+          ctx.save();
+          ctx.globalAlpha = p.alpha;
+          ctx.fillStyle   = `hsl(${p.hue},85%,72%)`;
+          ctx.shadowColor = `hsl(${p.hue},90%,80%)`;
+          ctx.shadowBlur  = 5;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r * 0.45, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+      requestAnimationFrame(loop);
+    }
+    loop();
+
+    document.addEventListener('click', e => {
+      const t = e.target.closest('a, button, .fw-card, .wcard, .gcard, .icard, .btn');
+      if (t) spawnBurst(e.clientX, e.clientY);
+    });
+  })();
+  </script>
+
 </body>
 </html>
+
