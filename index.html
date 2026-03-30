@@ -41,61 +41,112 @@
 
 <style>
 body {
-  background: #f6f1df;
+  background: #f4efe6;
   font-family: Georgia, serif;
-  text-align: center;
   margin: 0;
+  color: #3a342c;
 }
 
-.hero {
-  margin-top: 80px;
+.container {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 20px;
 }
 
-.tagline {
-  opacity: 0.6;
+.title {
+  text-align: center;
+  font-size: 48px;
   font-style: italic;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0.6;
+}
+
+.main-text {
+  text-align: center;
+  font-size: 22px;
+  margin: 40px 0;
+  line-height: 1.6;
+}
+
+.meta {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 1px;
+  opacity: 0.5;
+  margin-bottom: 60px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
-  padding: 40px;
 }
 
 .card {
-  background: #f0e6c8;
-  padding: 30px;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
+  background: rgba(255,255,255,0.4);
+  padding: 25px;
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
 }
 
-.card:hover {
-  transform: translateY(-5px);
+.card h3 {
+  margin-bottom: 10px;
 }
 
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
+background-image: radial-gradient(circle at 20% 30%, rgba(255,220,120,0.2), transparent 40%),
+                  radial-gradient(circle at 80% 70%, rgba(255,200,80,0.15), transparent 40%);
 </style>
 
 </head>
 
 <body>
 
-<div class="hero">
-  <h1>Lemonfield</h1>
-  <p class="tagline">A place where systems have rates and words have breaths</p>
-</div>
+<div class="container">
 
-<div class="grid">
-  <div class="card">Character & Behavior</div>
-  <div class="card">Systems & Perception</div>
-  <div class="card">Audio & Atmosphere</div>
-  <div class="card">UI & Experience</div>
+  <h1 class="title">Lemonfield</h1>
+
+  <p class="subtitle">
+    Narrative Systems Design & Psychological Architecture
+  </p>
+
+  <p class="main-text">
+    I help games retain players through emotional architecture and systemic design.
+  </p>
+
+  <p class="meta">
+    SHIPPED: TERRACE (2026) · APPLIED DESIGN · AVAILABLE FOR CONSULTING
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Character & Behavior</h3>
+      <p>Characters who live on past the end of the story.</p>
+    </div>
+
+    <div class="card">
+      <h3>Systems & Perception</h3>
+      <p>Stress-tests signal decay vs emotional framing for lasting narrative.</p>
+    </div>
+
+    <div class="card">
+      <h3>Audio & Atmosphere</h3>
+      <p>Sound constructs truth before dialogue.</p>
+    </div>
+
+    <div class="card">
+      <h3>UI & Experience</h3>
+      <p>Where information density builds or shatters immersion.</p>
+    </div>
+
+  </div>
+
 </div>
 
 <canvas id="lemonCanvas"></canvas>
