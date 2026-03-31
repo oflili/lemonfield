@@ -47,20 +47,17 @@
       position: fixed; inset: 0;
       pointer-events: none; z-index: 0;
     }
-
-    /* ── Pixie dust canvas ── */
+    
     #dust-canvas {
       position: fixed; inset: 0;
       pointer-events: none; z-index: 9997;
     }
 
-    /* ── Cursor trail canvas ── */
     #trail-canvas {
       position: fixed; inset: 0;
       pointer-events: none; z-index: 9996;
     }
 
-    /* ── Custom lemon cursor ── */
     #cursor {
       position: fixed; pointer-events: none; z-index: 9999;
       width: 44px; height: 28px;
@@ -72,9 +69,6 @@
     #cursor.pressing { transform: translate(-50%, -50%) scale(0.78); }
     #cursor.on-link { transform: translate(-50%, -50%) scale(1.18); }
 
-    /* ════════════════════════════
-       HEADER
-    ════════════════════════════ */
     header {
       text-align: center;
       padding: 2.8rem 0 1.6rem;
@@ -92,9 +86,6 @@
       color: var(--ink-4); margin-top: 0.55rem;
     }
 
-    /* ════════════════════════════
-       HERO
-    ════════════════════════════ */
     .hero {
       padding: 5.5rem 0 0; text-align: center;
       position: relative; z-index: 2;
@@ -108,7 +99,6 @@
     }
     .hero-h em { font-style: italic; color: var(--gold); }
 
-    /* The bridge statement — the operating logic, visitor's first real signal */
     .hero-bridge {
       margin: 2rem auto 0; max-width: 520px;
       font-family: var(--fell); font-style: italic;
@@ -130,9 +120,6 @@
     }
     .chip-live { border-color: var(--gold); color: var(--gold); }
 
-    /* ════════════════════════════
-       PROBLEM STRIP
-    ════════════════════════════ */
     .problems { position: relative; z-index: 2; }
     .prob-inner {
       border-bottom: 1px solid var(--rule-s);
@@ -150,11 +137,7 @@
     }
     .prob p { font-size: 0.84rem; color: var(--ink-3); line-height: 1.58; }
 
-    /* ════════════════════════════
-       BRIDGE THINKING BLOCK
-       — sits between problems and games
-       — the operating principle made visible
-    ════════════════════════════ */
+
     .bridge-block {
       position: relative; z-index: 2;
       padding: 3rem 0;
@@ -187,9 +170,6 @@
       line-height: 1.6;
     }
 
-    /* ════════════════════════════
-       SECTION LABEL
-    ════════════════════════════ */
     .slabel {
       font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase;
       color: var(--ink-4); display: flex; align-items: center; gap: 0.7rem;
@@ -197,9 +177,6 @@
     }
     .slabel::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 
-    /* ════════════════════════════
-       GAMES — proof, not portfolio
-    ════════════════════════════ */
     .games { padding: 3.5rem 0 0; position: relative; z-index: 2; }
     .games-intro {
       font-size: 0.84rem; color: var(--ink-3); font-style: italic;
@@ -233,13 +210,13 @@
       font-family: var(--serif); font-size: 1.08rem;
       font-weight: 600; color: var(--ink); line-height: 1.2; margin-bottom: 0.45rem;
     }
-    /* design question = the thesis each game is testing */
+    
     .gcard-q {
       font-family: var(--fell); font-style: italic;
       font-size: 0.87rem; color: var(--gold); line-height: 1.5; margin-bottom: 0.5rem;
     }
     .gcard p { font-size: 0.83rem; color: var(--ink-3); line-height: 1.55; flex: 1; }
-    /* proof note — connects game back to framework */
+    
     .gcard-proof {
       font-size: 0.75rem; color: var(--ink-4); font-style: italic;
       margin-top: 0.65rem; padding-top: 0.65rem;
@@ -259,9 +236,6 @@
       color: var(--ink-4); font-style: italic; text-align: right;
     }
 
-    /* ════════════════════════════
-       FRAMEWORK
-    ════════════════════════════ */
     .framework { padding: 3.5rem 0 0; position: relative; z-index: 2; }
     .fw-grid {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -300,9 +274,7 @@
       font-size: 0.97rem; color: var(--ink-4);
     }
 
-    /* ════════════════════════════
-       WORK / DISSECTIONS
-    ════════════════════════════ */
+
     .work { padding: 3.5rem 0 0; position: relative; z-index: 2; }
     .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .wcard {
@@ -348,10 +320,7 @@
     .wfoot svg { transition: transform 0.2s; }
     .wcard:hover .wfoot svg { transform: translateX(3px); }
 
-    /* ════════════════════════════
-       APPLIED IMPACT
-       — real conversations, real proof
-    ════════════════════════════ */
+  
     .impact { padding: 3.5rem 0 0; position: relative; z-index: 2; }
     .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .icard {
@@ -362,7 +331,7 @@
       font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--ink-4); margin-bottom: 0.7rem;
     }
-    /* the insight — what was said, anonymized */
+    
     .icard-quote {
       font-family: var(--fell); font-style: italic;
       font-size: 0.95rem; color: var(--ink); line-height: 1.65;
@@ -374,9 +343,7 @@
     }
     .icard-outcome strong { color: var(--ink-2); font-weight: 600; }
 
-    /* ════════════════════════════
-       BOTTOM — notes + work together
-    ════════════════════════════ */
+    
     .bottom {
       padding: 3.5rem 0 5.5rem; position: relative; z-index: 2;
       display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start;
@@ -415,7 +382,7 @@
       font-family: var(--serif); font-size: 1.28rem;
       font-weight: 400; color: var(--ink); margin-bottom: 0.6rem;
     }
-    /* the real pitch line */
+    
     .consult-pitch {
       font-family: var(--fell); font-style: italic;
       font-size: 1rem; color: var(--ink-2); line-height: 1.65;
@@ -442,9 +409,7 @@
     }
     .btn-ghost:hover { background: var(--bg-card-h); color: var(--ink-2); }
 
-    /* ════════════════════════════
-       FOOTER
-    ════════════════════════════ */
+    
     footer {
       border-top: 1px solid var(--rule); text-align: center; padding: 1.35rem;
       font-size: 0.66rem; letter-spacing: 0.13em; text-transform: uppercase;
@@ -453,9 +418,6 @@
     footer a { border-bottom: 1px solid var(--rule); transition: color 0.2s; }
     footer a:hover { color: var(--gold); }
 
-    /* ════════════════════════════
-       ENTRY ANIMATIONS
-    ════════════════════════════ */
     @keyframes rise {
       from { opacity: 0; transform: translateY(14px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -470,9 +432,7 @@
     .impact       { animation: rise 0.65s 0.35s ease both; }
     .bottom       { animation: rise 0.65s 0.39s ease both; }
 
-    /* ════════════════════════════
-       RESPONSIVE
-    ════════════════════════════ */
+    
     @media (max-width: 640px) {
       body { cursor: auto; }
       .prob-inner, .games-grid, .fw-grid, .work-grid,
@@ -489,7 +449,7 @@
   <canvas id="trail-canvas"></canvas>
   <canvas id="dust-canvas"></canvas>
 
-  <!-- Lemon cursor -->
+  
   <svg id="cursor" viewBox="-24 -15 48 30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <filter id="cglow" x="-50%" y="-50%" width="200%" height="200%">
@@ -507,7 +467,7 @@
     <ellipse cx="-3" cy="-5.5" rx="5" ry="2" transform="rotate(-18 -3 -5.5)" fill="rgba(255,250,200,0.22)"/>
   </svg>
 
-  <!-- ══ HEADER ══ -->
+  
   <header>
     <div class="wrap">
       <a href="/" class="logo">Lemonfield</a>
@@ -517,17 +477,16 @@
 
   <main>
 
-    <!-- ══ HERO ══
-         Two lines. That's it.
-         The bridge statement below does the explaining.
-    -->
+
+
+    
     <section class="hero wrap">
       <h1 class="hero-h">
         Most games give rewards.<br>
         <em>I design gaps.</em>
       </h1>
       <p class="hero-bridge">
-        What keeps players is designed
+        A controlled gap creates intention. Where a story feels incomplete, a player doesn't just watch—they commit. What keeps players is designed.
       </p>
       <div class="hero-meta">
         <span class="chip chip-live">Shipped: Terrace · Last Chapter</span>
@@ -536,7 +495,8 @@
       </div>
     </section>
 
-    <!-- ══ PROBLEM STRIP ══ -->
+
+    
     <div class="problems">
       <div class="wrap">
         <div class="prob-inner">
@@ -546,41 +506,35 @@
           </div>
           <div class="prob">
             <h3>The branches are correct but feel the same</h3>
-            <p>Structural completeness doesn't guarantee experiential differentiation. Choices that don't feel different aren't choices — they're theater with extra steps.</p>
+            <p>Structural completeness doesn't guarantee experiential differentiation. Choices that don't feel different aren't choices, they're theater with extra steps.</p>
           </div>
           <div class="prob">
             <h3>The character is consistent but stopped feeling alive</h3>
-            <p>Voice erosion across updates is slow — until players stop trusting the relationship. By then, the attachment loss is already in the numbers.</p>
+            <p>Voice erosion across updates is slow, until players stop trusting the relationship. By then, the attachment loss is already in the numbers.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ══ BRIDGE THINKING ══
-         The operating principle. How the mind actually works.
-         Not a bio. Not credentials. The lens.
-    -->
+    
     <div class="bridge-block">
       <div class="wrap">
         <div class="bridge-inner">
           <div class="bridge-label">
-            <span>How I See</span>
-            The Bridge
+            <span>Void Beats Polish</span>
+            My Retention Chain
           </div>
           <div class="bridge-text">
-            In horror, clutter is dangerous if it is decorative clutter. If everything looks interactable but isn't, tension becomes noise. Oppression requires controlled focus.
+              Players look → reach → interpret → feel. I design the "gaps"—silence and hesitation—that pull players in deeper. No force. Result: curiosity, tension, commitment.
             <strong>
-              This is the lens I bring to every system — not just horror. Every element either has weight or it creates confusion. Weight isn't complexity. It's intention made felt. I look for where the system is speaking and where the experience is hearing something else entirely.
+              Proof: I used 1 background, 8 clickable objects, and basic audio. Players demanded more. Proving that player obsession is built in the mind, not just the engine.
             </strong>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ══ SHIPPED GAMES ══
-         Each game is a live test of the framework.
-         Not "my projects" — proof the thinking is real and playable.
-    -->
+
     <section class="games wrap">
       <p class="slabel">Shipped &amp; In Development</p>
       <p class="games-intro">Each game is a playable prototype of a design question. The framework isn't theoretical — it's been built, shipped, and tested on real players.</p>
@@ -620,7 +574,7 @@
       <p class="games-note">All visuals hand-drawn in IbisPaint · All BGM composed in LMMS</p>
     </section>
 
-    <!-- ══ FRAMEWORK ══ -->
+
     <section class="framework wrap">
       <p class="slabel">Framework</p>
       <div class="fw-grid">
@@ -652,7 +606,7 @@
       <p class="fw-quote">Not all systems behave. Some must be listened to.</p>
     </section>
 
-    <!-- ══ WORK / DISSECTIONS ══ -->
+
     <section class="work wrap">
       <p class="slabel">System Dissections &amp; Applied Analysis</p>
       <div class="work-grid">
@@ -707,10 +661,7 @@
       </div>
     </section>
 
-    <!-- ══ APPLIED IMPACT ══
-         Real conversations. Real proof.
-         Anonymized but honest — shows thinking lands in practice, not just theory.
-    -->
+    
     <section class="impact wrap">
       <p class="slabel">Applied Impact</p>
       <div class="impact-grid">
@@ -727,7 +678,7 @@
       </div>
     </section>
 
-    <!-- ══ BOTTOM ══ -->
+    
     <div class="bottom wrap">
       <div class="notes">
         <h2>Monday Field Notes</h2>
@@ -774,7 +725,8 @@
   </footer>
 
   <script>
-  /* ═══════════════════════════════════════════════════════════
+    
+  /*
      LEMON SYSTEM — three behaviors, one intention
      
      Scroll  → lemons grow. Absence becomes presence.
@@ -785,9 +737,9 @@
      
      Click   → commitment. Pixie dust lemons burst outward.
                Interaction has weight. Actions leave marks.
-  ═══════════════════════════════════════════════════════════ */
+  */
 
-  /* ── Shared: parametric lemon point generator ── */
+  
   function lemonPts(rx, ry, N) {
     const pts = [], asym = 0.22, tip = 1.62;
     for (let i = 0; i <= N; i++) {
@@ -805,14 +757,15 @@
     for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
     ctx.closePath();
   }
+    
 
-  /* ═══════════════════════════════════
+  /*
      1. BACKGROUND LEMON FIELD
         Lemons start small/faint.
         As visitor scrolls deeper, each lemon 
         grows toward its full size — demonstrating
         the gap theory visually: small becomes present.
-  ═══════════════════════════════════ */
+   */
   (function() {
     const canvas = document.getElementById('lemon-bg');
     const ctx    = canvas.getContext('2d');
@@ -845,29 +798,29 @@
       ctx.rotate(rot);
 
       const pts = lemonPts(rx, ry, 100);
-      const g   = scrollFrac * 0.6; // glow intensity from scroll
+      const g   = scrollFrac * 0.6;
 
-      // layer 1 — wide soft halo
+      
       ctx.strokeStyle = `rgba(175,142,18,${op * 0.22})`;
       ctx.lineWidth   = rx * 0.26;
       ctx.shadowBlur  = 0;
       tracePts(ctx, pts); ctx.stroke();
 
-      // layer 2 — colored glow ring
+      
       ctx.strokeStyle = `rgba(215,175,38,${op * 0.38 + g * 0.1})`;
       ctx.lineWidth   = rx * 0.10;
       ctx.shadowColor = `rgba(225,188,48,${op * 0.55 + g * 0.2})`;
       ctx.shadowBlur  = 8 + g * 22;
       tracePts(ctx, pts); ctx.stroke();
 
-      // layer 3 — bright core
+      
       ctx.strokeStyle = `rgba(245,215,75,${op * 0.65 + g * 0.2})`;
       ctx.lineWidth   = 0.9;
       ctx.shadowColor = `rgba(255,232,95,${op * 0.85 + g * 0.15})`;
       ctx.shadowBlur  = 4 + g * 12;
       tracePts(ctx, pts); ctx.stroke();
 
-      // layer 4 — white-gold hot center (only visible when scrolled into)
+      
       if (g > 0.3) {
         ctx.strokeStyle = `rgba(255,248,190,${(g - 0.3) * 0.5})`;
         ctx.lineWidth   = 0.4;
@@ -875,7 +828,7 @@
         tracePts(ctx, pts); ctx.stroke();
       }
 
-      // nub
+      
       const nubX = rx * 1.22, nubL = rx * 0.16, nubH = ry * 0.14;
       ctx.lineWidth   = 0.8;
       ctx.strokeStyle = `rgba(220,185,48,${op * 0.55 + g * 0.15})`;
@@ -921,13 +874,13 @@
   })();
 
 
-  /* ═══════════════════════════════════
+  /*
      2. CURSOR + PRESENCE TRAIL
         Cursor = lemon. Every move leaves
         a fading trace — the visitor's path
         through the page is made visible.
         Presence has weight.
-  ═══════════════════════════════════ */
+  */
   (function() {
     const cursor = document.getElementById('cursor');
     const trail  = document.getElementById('trail-canvas');
@@ -997,13 +950,13 @@
   })();
 
 
-  /* ═══════════════════════════════════
+  /* 
      3. CLICK → PIXIE DUST LEMONS
         Clicking an interactive element
         bursts lemon-shaped particles outward.
         Actions leave marks.
         Commitment is visible.
-  ═══════════════════════════════════ */
+   */
   (function() {
     const canvas = document.getElementById('dust-canvas');
     const ctx    = canvas.getContext('2d');
