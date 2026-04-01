@@ -447,15 +447,12 @@
 
   <script>
   const password = "lemon12300";
-  let input;
+  const input = prompt("Enter password:");
 
-  while (input !== password) {
-    input = prompt("Enter password:");
-
-    if (input === null) {
-      document.documentElement.innerHTML = "<h1 style='text-align:center;margin-top:40vh;'>Go away 🍋</h1>";
-      throw new Error("Denied");
-    }
+  if (input !== password) {
+    document.body.innerHTML = "";
+    document.documentElement.innerHTML = "<h1 style='color:white;text-align:center;margin-top:40vh;'>No lemons for you 🍋</h1>";
+    throw new Error("Access denied");
   }
   </script>
 
@@ -740,18 +737,6 @@
 
   <script>
     
-  /*
-     LEMON SYSTEM — three behaviors, one intention
-     
-     Scroll  → lemons grow. Absence becomes presence.
-               The page itself demonstrates the gap theory.
-     
-     Cursor  → presence. Every move leaves a trace.
-               The player is always affecting the world.
-     
-     Click   → commitment. Pixie dust lemons burst outward.
-               Interaction has weight. Actions leave marks.
-  */
 
   
   function lemonPts(rx, ry, N) {
@@ -771,15 +756,8 @@
     for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
     ctx.closePath();
   }
-    
 
-  /*
-     1. BACKGROUND LEMON FIELD
-        Lemons start small/faint.
-        As visitor scrolls deeper, each lemon 
-        grows toward its full size — demonstrating
-        the gap theory visually: small becomes present.
-   */
+    
   (function() {
     const canvas = document.getElementById('lemon-bg');
     const ctx    = canvas.getContext('2d');
@@ -888,13 +866,7 @@
   })();
 
 
-  /*
-     2. CURSOR + PRESENCE TRAIL
-        Cursor = lemon. Every move leaves
-        a fading trace — the visitor's path
-        through the page is made visible.
-        Presence has weight.
-  */
+    
   (function() {
     const cursor = document.getElementById('cursor');
     const trail  = document.getElementById('trail-canvas');
@@ -907,7 +879,7 @@
       trail.height = window.innerHeight;
     });
 
-    // trail points: [{x, y, age}]
+    
     const trailPts = [];
     const TRAIL_MAX = 28;
     const TRAIL_DECAY = 0.045;
@@ -930,7 +902,7 @@
     document.addEventListener('mousedown', () => cursor.classList.add('pressing'));
     document.addEventListener('mouseup',   () => cursor.classList.remove('pressing'));
 
-    // cursor grows on interactive elements
+    
     document.addEventListener('mouseover', e => {
       const t = e.target.closest('a, button, .fw-card, .wcard, .gcard, .icard');
       if (t) { cursor.classList.add('on-link'); }
@@ -964,13 +936,7 @@
   })();
 
 
-  /* 
-     3. CLICK → PIXIE DUST LEMONS
-        Clicking an interactive element
-        bursts lemon-shaped particles outward.
-        Actions leave marks.
-        Commitment is visible.
-   */
+  
   (function() {
     const canvas = document.getElementById('dust-canvas');
     const ctx    = canvas.getContext('2d');
