@@ -445,6 +445,17 @@
 </head>
 <body>
 
+  <script>
+  const password = "lemon1230";
+
+  const input = prompt("Enter password:");
+
+  if (input !== password) {
+    document.body.innerHTML = "";
+    alert("No lemons for you 🍋");
+  }
+  </script>
+
   <canvas id="lemon-bg"></canvas>
   <canvas id="trail-canvas"></canvas>
   <canvas id="dust-canvas"></canvas>
