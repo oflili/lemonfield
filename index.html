@@ -447,12 +447,15 @@
 
   <script>
   const password = "lemon1230";
+  let input;
 
-  const input = prompt("Enter password:");
+  while (input !== password) {
+    input = prompt("Enter password:");
 
-  if (input !== password) {
-    document.body.innerHTML = "";
-    alert("No lemons for you 🍋");
+    if (input === null) {
+      document.body.innerHTML = "<h1>No No 🍋</h1>";
+      throw new Error("Access denied");
+    }
   }
   </script>
 
