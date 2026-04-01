@@ -446,15 +446,15 @@
 <body>
 
   <script>
-  const password = "lemon1230";
+  const password = "lemon12300";
   let input;
 
   while (input !== password) {
     input = prompt("Enter password:");
 
     if (input === null) {
-      document.body.innerHTML = "<h1>No No 🍋</h1>";
-      throw new Error("Access denied");
+      document.documentElement.innerHTML = "<h1 style='text-align:center;margin-top:40vh;'>Go away 🍋</h1>";
+      throw new Error("Denied");
     }
   }
   </script>
