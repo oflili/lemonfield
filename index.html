@@ -20,16 +20,18 @@
   <link rel="canonical" href="https://oflili.github.io/lemonfield/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;600&display=swap"
+    rel="stylesheet" />
   <style>
     :root {
       --bg: #f2ead6;
       --bg-card: #ece3c8;
       --bg-card-h: #e4dabb;
-      --ink: #1e1908;
-      --ink-2: #46391f;
-      --ink-3: #766a42;
-      --ink-4: #a49870;
+      --ink: #1f361a; /* Dark Forest Green (System Voice) */
+      --ink-2: #3f4621;
+      --ink-3: #5c643b;
+      --ink-4: #7c7041; /* Dried Lemon Rind (Author Voice) */
       --gold: #9c8220;
       --gold-lt: #c4a238;
       --gold-pale: #ddc870;
@@ -39,7 +41,8 @@
       --body: 'Outfit', sans-serif;
       --body-dense: 'Crimson Pro', Georgia, serif;
       --fell: 'IM Fell English', Georgia, serif;
-      --voice: 'Libre Baskerville', serif; /* Specifically for human narrative in main body */
+      --voice: 'Libre Baskerville', serif;
+      /* Specifically for human narrative in main body */
     }
 
     *,
@@ -106,19 +109,19 @@
     .bg-lemon .ring {
       stroke: rgba(204, 168, 58, 0.5);
       fill: rgba(219, 184, 72, 0.04);
-      stroke-width: 1.2;
+      stroke-width: 0.6;
     }
 
     .bg-lemon .stem {
       stroke: rgba(200, 162, 55, 0.75);
-      stroke-width: 1.2;
+      stroke-width: 0.65;
       fill: none;
       stroke-linecap: round;
     }
 
     .bg-lemon .leaf {
       stroke: rgba(109, 139, 74, 0.78);
-      stroke-width: 1.25;
+      stroke-width: 0.7;
       fill: none;
       stroke-linecap: round;
     }
@@ -262,9 +265,12 @@
       max-width: 600px;
       font-family: var(--voice);
       font-style: italic;
-      font-size: 1.15rem;
-      color: var(--ink-2);
+      font-size: 0.875rem; /* Reference Size */
+      color: #7c7041;
+      letter-spacing: 0.02em;
+      transform: skewX(-2deg);
       line-height: 1.8;
+      opacity: 0.7;
       border-top: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
       padding: 1.6rem 0.8rem;
@@ -284,7 +290,7 @@
       font-size: 0.66rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--ink-3);
+      color: var(--ink);
       border: 1px solid var(--rule-s);
       padding: 0.24rem 0.65rem;
     }
@@ -336,15 +342,14 @@
     }
 
     .prob:nth-child(3) {
-      background: #e8dfc5;
+      background: #4f4118;
     }
 
     .prob:nth-child(3) h3 {
-      color: #352b14;
+      color: #ede4c1;
     }
-
     .prob:nth-child(3) p {
-      color: #615434;
+      color: #d0c49b;
     }
 
     .prob:last-child {
@@ -362,7 +367,7 @@
 
     .prob p {
       font-size: 0.82rem;
-      color: var(--ink-3);
+      color: var(--ink);
       line-height: 1.42;
     }
 
@@ -384,12 +389,13 @@
     .bridge-label {
       font-family: var(--voice);
       font-style: italic;
-      font-size: 0.92rem;
-      color: var(--gold);
-      letter-spacing: 0.06em;
+      font-size: 0.82rem; /* Balanced reference */
+      color: #7c7041;
+      letter-spacing: 0.02em;
       padding-top: 0.2rem;
-      line-height: 1.35;
-      font-weight: 700;
+      line-height: 1.8;
+      font-weight: 400;
+      opacity: 0.7;
     }
 
     .bridge-label span {
@@ -399,16 +405,18 @@
       font-size: 0.62rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--ink-4);
+      color: #7c7041;
       margin-bottom: 0.35rem;
     }
 
     .bridge-text {
       font-family: var(--voice);
       font-style: italic;
-      font-size: 1.08rem;
-      color: var(--ink-2);
-      line-height: 1.75;
+      font-size: 0.82rem; /* Balanced reference */
+      color: #7c7041;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      opacity: 0.7;
     }
 
     .bridge-text strong {
@@ -428,7 +436,7 @@
       font-size: 0.66rem;
       letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: var(--ink-4);
+      color: #7c7041;
       display: flex;
       align-items: center;
       gap: 0.7rem;
@@ -449,8 +457,9 @@
     }
 
     .games-intro {
-      font-size: 0.82rem; color: var(--ink-3); font-style: italic;
+      font-size: 0.65rem; color: #7c7041; font-style: italic;
       font-family: var(--voice); margin-bottom: 1.4rem; max-width: 560px;
+      line-height: 1.8; opacity: 0.7; letter-spacing: 0.01em;
     }
 
     .games-grid {
@@ -518,42 +527,48 @@
       font-size: 0.62rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--ink-4);
+      color: #7c7041;
       margin-bottom: 0.5rem;
     }
 
     .gcard h3 {
-      font-family: var(--serif); font-size: 1.08rem;
-      font-weight: 600; color: var(--ink); line-height: 1.2; margin-bottom: 0.45rem;
+      font-family: var(--serif);
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 0.45rem;
     }
 
-    .gcard-q {
+    .gcard .gcard-q {
       font-family: var(--voice);
       font-style: italic;
-      font-size: 0.82rem;
-      color: var(--ink-2);
-      line-height: 1.42;
+      font-size: 0.65rem;
+      color: #7c7041;
+      line-height: 1.8;
       margin-bottom: 0.42rem;
       letter-spacing: 0.01em;
+      opacity: 0.7;
     }
 
     .gcard p {
       font-size: 0.83rem;
-      color: var(--ink-3);
+      color: var(--ink);
       line-height: 1.48;
       flex: 1;
     }
 
     .gcard>p:not(.gcard-q):not(.gcard-proof):not(.gcard-engine) {
       font-weight: 600;
-      color: var(--ink-2);
+      color: var(--ink);
     }
 
-    .gcard-proof {
-      font-size: 0.82rem; color: var(--ink-4); font-style: italic;
+    .gcard .gcard-proof {
+      font-size: 0.65rem; color: #7c7041; font-style: italic;
       margin-top: 0.65rem; padding-top: 0.65rem;
       border-top: 1px solid var(--rule);
       font-family: var(--voice);
+      line-height: 1.8; opacity: 0.7; letter-spacing: 0.01em;
     }
 
     .gcard-status {
@@ -580,7 +595,7 @@
     .games-note {
       margin-top: 0.9rem;
       font-size: 0.76rem;
-      color: var(--ink-4);
+      color: #7c7041;
       font-style: italic;
       text-align: right;
     }
@@ -637,7 +652,7 @@
       font-family: var(--fell);
       font-style: italic;
       font-size: 0.67rem;
-      color: var(--ink-4);
+      color: #7c7041;
       display: block;
       margin-bottom: 0.4rem;
     }
@@ -663,7 +678,7 @@
       font-size: 0.63rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--ink-3);
+      color: var(--ink); /* System Voice Deep Olive */
       border-bottom: 1px solid var(--rule-s);
       padding-bottom: 1px;
       transition: color 0.2s;
@@ -674,9 +689,11 @@
     }
 
     .fw-quote {
-      text-align: center; margin-top: 1.5rem;
+      text-align: center;
+      margin-top: 1.5rem;
       font-family: var(--voice); font-style: italic;
-      font-size: 0.82rem; color: var(--ink-4);
+      font-size: 0.65rem; color: #7c7041;
+      line-height: 1.8; opacity: 0.7; letter-spacing: 0.01em;
     }
 
 
@@ -769,11 +786,13 @@
     .w-ins {
       font-family: var(--voice);
       font-style: italic;
-      font-size: 0.82rem;
-      color: var(--ink-2);
-      line-height: 1.42;
+      font-size: 0.65rem;
+      color: #7c7041;
+      line-height: 1.8;
       padding-left: 0.75rem;
       border-left: 2px solid var(--gold-pale);
+      opacity: 0.7;
+      letter-spacing: 0.01em;
     }
 
     .w-meta {
@@ -794,7 +813,7 @@
       align-items: center;
       justify-content: space-between;
       font-size: 0.76rem;
-      color: var(--ink-3);
+      color: var(--ink); /* System Voice Deep Olive */
       transition: color 0.2s;
     }
 
@@ -833,24 +852,26 @@
       font-size: 0.68rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--ink-4);
+      color: #7c7041;
       margin-bottom: 0.7rem;
     }
 
     .icard-quote {
       font-family: var(--voice);
       font-style: italic;
-      font-size: 0.82rem;
-      color: var(--ink);
-      line-height: 1.65;
+      font-size: 0.65rem;
+      color: #7c7041;
+      line-height: 1.8;
       padding-left: 0.8rem;
       border-left: 2px solid var(--gold-pale);
       margin-bottom: 0.75rem;
+      opacity: 0.7;
+      letter-spacing: 0.01em;
     }
 
     .icard-outcome {
       font-size: 0.8rem;
-      color: var(--ink-3);
+      color: var(--ink); /* System Voice Deep Olive */
       line-height: 1.55;
     }
 
@@ -918,8 +939,9 @@
     }
 
     .notes-sub {
-      font-size: 0.82rem; color: var(--ink-4); margin-bottom: 1rem;
+      font-size: 0.65rem; color: #7c7041; margin-bottom: 1rem;
       font-style: italic; font-family: var(--voice);
+      line-height: 1.8; opacity: 0.7; letter-spacing: 0.01em;
     }
 
     .note-item {
@@ -931,9 +953,11 @@
     .note-item p {
       font-family: var(--voice);
       font-style: italic;
-      font-size: 0.82rem;
-      color: var(--ink-2);
-      line-height: 1.6;
+      font-size: 0.65rem;
+      color: #7c7041;
+      line-height: 1.8;
+      opacity: 0.7;
+      letter-spacing: 0.01em;
     }
 
     .note-item span {
@@ -942,7 +966,7 @@
       font-size: 0.62rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--ink-4);
+      color: #7c7041;
     }
 
     .notes-link {
@@ -975,17 +999,18 @@
       margin-bottom: 0.6rem;
     }
 
-    .consult-pitch {
+    .consult .consult-pitch {
       font-family: var(--voice); font-style: italic;
-      font-size: 0.82rem; color: var(--ink-2); line-height: 1.52;
-      font-weight: 600;
+      font-size: 0.65rem; color: #7c7041; line-height: 1.8;
+      font-weight: 400;
       margin-bottom: 0.9rem; padding-bottom: 0.9rem;
       border-bottom: 1px solid var(--rule);
+      opacity: 0.7; letter-spacing: 0.01em;
     }
 
     .consult p {
       font-size: 0.87rem;
-      color: var(--ink-3);
+      color: var(--ink); /* System Voice Deep Olive */
       line-height: 1.65;
       margin-bottom: 1rem;
     }
